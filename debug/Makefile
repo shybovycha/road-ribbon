@@ -18,7 +18,7 @@ CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 INCPATH       = -I/opt/Qt/5.2.0/gcc_64/mkspecs/linux-g++ -I../road_ribbon -I/opt/Qt/5.2.0/gcc_64/include -I/opt/Qt/5.2.0/gcc_64/include/QtCore -I. -I.
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/opt/Qt/5.2.0/gcc_64 -Wl,-rpath,/opt/Qt/5.2.0/gcc_64/lib
-LIBS          = $(SUBLIBS) -L/opt/Qt/5.2.0/gcc_64/lib -lQt5Core -lpthread 
+LIBS          = $(SUBLIBS) -lsfml-graphics -lGL -lGLU -lsfml-window -lsfml-system -L/opt/Qt/5.2.0/gcc_64/lib -lQt5Core -lpthread 
 AR            = ar cqs
 RANLIB        = 
 QMAKE         = /opt/Qt/5.2.0/gcc_64/bin/qmake
@@ -47,10 +47,12 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../road_ribbon/main.cpp \
 		../road_ribbon/gpsdataparser.cpp \
-		../road_ribbon/vector2d.cpp 
+		../road_ribbon/vector2d.cpp \
+		../road_ribbon/plainroadbuilder.cpp 
 OBJECTS       = main.o \
 		gpsdataparser.o \
-		vector2d.o
+		vector2d.o \
+		plainroadbuilder.o
 DIST          = /opt/Qt/5.2.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt/5.2.0/gcc_64/mkspecs/common/shell-unix.conf \
 		/opt/Qt/5.2.0/gcc_64/mkspecs/common/unix.conf \
@@ -404,7 +406,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/road_ribbon1.0.0 || mkdir -p .tmp/road_ribbon1.0.0
-	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/road_ribbon1.0.0/ && $(COPY_FILE) --parents ../road_ribbon/gpsdataparser.h ../road_ribbon/vector2d.h .tmp/road_ribbon1.0.0/ && $(COPY_FILE) --parents ../road_ribbon/main.cpp ../road_ribbon/gpsdataparser.cpp ../road_ribbon/vector2d.cpp .tmp/road_ribbon1.0.0/ && (cd `dirname .tmp/road_ribbon1.0.0` && $(TAR) road_ribbon1.0.0.tar road_ribbon1.0.0 && $(COMPRESS) road_ribbon1.0.0.tar) && $(MOVE) `dirname .tmp/road_ribbon1.0.0`/road_ribbon1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/road_ribbon1.0.0
+	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/road_ribbon1.0.0/ && $(COPY_FILE) --parents ../road_ribbon/gpsdataparser.h ../road_ribbon/vector2d.h ../road_ribbon/plainroadbuilder.h .tmp/road_ribbon1.0.0/ && $(COPY_FILE) --parents ../road_ribbon/main.cpp ../road_ribbon/gpsdataparser.cpp ../road_ribbon/vector2d.cpp ../road_ribbon/plainroadbuilder.cpp .tmp/road_ribbon1.0.0/ && (cd `dirname .tmp/road_ribbon1.0.0` && $(TAR) road_ribbon1.0.0.tar road_ribbon1.0.0 && $(COMPRESS) road_ribbon1.0.0.tar) && $(MOVE) `dirname .tmp/road_ribbon1.0.0`/road_ribbon1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/road_ribbon1.0.0
 
 
 clean:compiler_clean 
@@ -616,6 +618,85 @@ gpsdataparser.o: ../road_ribbon/gpsdataparser.cpp ../road_ribbon/gpsdataparser.h
 
 vector2d.o: ../road_ribbon/vector2d.cpp ../road_ribbon/vector2d.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o vector2d.o ../road_ribbon/vector2d.cpp
+
+plainroadbuilder.o: ../road_ribbon/plainroadbuilder.cpp ../road_ribbon/plainroadbuilder.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/QVector \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qvector.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qalgorithms.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qglobal.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qconfig.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qfeatures.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_integrity.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qoldbasicatomic.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_vxworks.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_power.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_alpha.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_armv7.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_armv6.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_armv5.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_bfin.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_ia64.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_mips.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_s390.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_sh4a.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_sparc.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_x86.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_gcc.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qatomic_unix.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qlogging.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qflags.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qtypetraits.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qsysinfo.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qiterator.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qlist.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qrefcount.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qarraydata.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qpoint.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qnamespace.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/QDebug \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qdebug.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qhash.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qchar.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qpair.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qmap.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qtextstream.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qiodevice.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qstring.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qbytearray.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qstringbuilder.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qcoreevent.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qmetatype.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qisenum.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qlocale.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qvariant.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qstringlist.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qdatastream.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qregexp.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qshareddata.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qset.h \
+		/opt/Qt/5.2.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		../road_ribbon/vector2d.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o plainroadbuilder.o ../road_ribbon/plainroadbuilder.cpp
 
 ####### Install
 

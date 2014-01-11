@@ -5,6 +5,7 @@
 #include <QString>
 #include <QFile>
 #include <QTextStream>
+
 #include <QVector>
 #include <QDebug>
 
@@ -19,9 +20,9 @@ public:
     void toJS(QString filename);
     void parse(QString filename);
 
-protected:
     QVector<Vector2d> points;
 
+protected:
     double str2deg(QString str);
     void processLine(QString line);
 };
