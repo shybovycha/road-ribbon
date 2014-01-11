@@ -16,6 +16,8 @@ public:
     Vector2d operator+(const Vector2d &v);
     Vector2d operator-(const Vector2d &v);
 
+    bool operator==(const Vector2d &v);
+
     Vector2d normalize();
 
     double x;

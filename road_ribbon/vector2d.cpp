@@ -32,6 +32,11 @@ Vector2d Vector2d::operator-(const Vector2d &v)
     return Vector2d(this->x - v.x, this->y - v.y);
 }
 
+bool Vector2d::operator==(const Vector2d &v)
+{
+    return ((this->x == v.x) && (this->y == v.y));
+}
+
 Vector2d Vector2d::normalize()
 {
     double l = this->distance(Vector2d(0, 0));

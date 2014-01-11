@@ -48,28 +48,45 @@ int main(int argc, char *argv[])
     // set the text style
     text.setStyle(sf::Text::Bold | sf::Text::Underlined);
 
-    PlainRoadBuilder roadBuilder(parser.points);
+    PlainRoadBuilder roadBuilder(parser.points, 15.0, PlainRoadBuilder::CENTERS_ONLY);
 
-    sf::ConvexShape convex;
+    sf::View view = window.getDefaultView();
 
-    /*convex.setPointCount(roadBuilder.points.size());
+    view.move(-50, -100);
 
-    for (int i = 0; i < roadBuilder.points.size(); i++)
+    window.setView(view);
+
+    for (int i = 0; i < roadBuilder.points.size() - 1; i++)
     {
-        convex.setPoint(i, sf::Vector2f(roadBuilder.points[i].x, roadBuilder.points[i].y));
-    }*/
+        /*sf::ConvexShape convex;
 
-    // resize it to 5 points
-    convex.setPointCount(5);
+        convex.setFillColor(sf::Color(0, 0, 0, 0));
+        convex.setOutlineColor(sf::Color(100, 100, 150));
+        convex.setOutlineThickness(1);
 
-    // define the points
-    convex.setPoint(0, sf::Vector2f(0, 0));
-    convex.setPoint(1, sf::Vector2f(150, 10));
-    convex.setPoint(2, sf::Vector2f(120, 90));
-    convex.setPoint(3, sf::Vector2f(30, 100));
-    convex.setPoint(4, sf::Vector2f(0, 50));
+        convex.setPointCount(2);
+        convex.setPoint(0, sf::Vector2f(roadBuilder.points[i + 0].x, roadBuilder.points[i + 0].y));
+        convex.setPoint(1, sf::Vector2f(roadBuilder.points[i + 1].x, roadBuilder.points[i + 1].y));*/
 
-    convex.setFillColor(sf::Color(155, 155, 50));
+        sf::Vertex line[] =
+        {
+            sf::Vertex(sf::Vector2f(roadBuilder.points[i + 0].x, roadBuilder.points[i + 0].y)),
+            sf::Vertex(sf::Vector2f(roadBuilder.points[i + 1].x, roadBuilder.points[i + 1].y))
+        };
+
+        window.draw(line, 2, sf::Lines);
+
+        /*convex.setPointCount(4);
+
+        convex.setPoint(0, sf::Vector2f(roadBuilder.points[i + 0].x, roadBuilder.points[i + 0].y));
+        convex.setPoint(1, sf::Vector2f(roadBuilder.points[i + 1].x, roadBuilder.points[i + 1].y));
+        convex.setPoint(2, sf::Vector2f(roadBuilder.points[i + 2].x, roadBuilder.points[i + 2].y));
+        convex.setPoint(3, sf::Vector2f(roadBuilder.points[i + 3].x, roadBuilder.points[i + 3].y));*/
+
+        // window.draw(convex);
+
+        window.display();
+    }
 
     while (window.isOpen())
     {
@@ -86,13 +103,19 @@ int main(int argc, char *argv[])
             }
         }
 
-        // glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+            view.move(0, -10);
 
-        // window.pushGLStates();
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+            view.move(0, 10);
 
-        window.draw(convex);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+            view.move(-10, 0);
 
-        // window.popGLStates();
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+            view.move(10, 0);
+
+        window.setView(view);
 
         window.display();
     }
