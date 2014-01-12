@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
     // set the text style
     text.setStyle(sf::Text::Bold | sf::Text::Underlined);
 
-    PlainRoadBuilder roadBuilder(parser.points, 15.0, PlainRoadBuilder::CENTERS_ONLY);
+    PlainRoadBuilder roadBuilder(parser.points, 15.0, PlainRoadBuilder::LINES_ONLY);
 
     sf::View view = window.getDefaultView();
 
@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 
     window.setView(view);
 
-    for (int i = 0; i < roadBuilder.points.size() - 1; i++)
+    for (int i = 0; i < roadBuilder.points.size() - 2; i += 2)
     {
         /*sf::ConvexShape convex;
 

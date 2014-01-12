@@ -12,9 +12,44 @@ Vector2d::Vector2d(double _x, double _y)
     this->y = _y;
 }
 
-double Vector2d::distance(Vector2d other)
+double Vector2d::distanceTo(Vector2d that)
 {
-    return sqrt(pow(other.x - this->x, 2.0) + pow(other.y - this->y, 2.0));
+    return sqrt(pow(that.x - this->x, 2.0) + pow(that.y - this->y, 2.0));
+}
+
+double Vector2d::length()
+{
+    return this->distanceTo(Vector2d(0, 0));
+}
+
+double Vector2d::angleTo(Vector2d that)
+{
+    return acos(this->dotProduct(that) / (this->length() * that.length()));
+}
+
+Vector2d Vector2d::rotate(double angle)
+{
+    return Vector2d((this->x * cos(angle)) - (this->y * sin(angle)),
+                    (this->x * sin(angle)) + (this->y * cos(angle)));
+}
+
+Vector2d Vector2d::perpendicular()
+{
+    if (this->y != 0.0)
+    {
+        return Vector2d(1.0, -this->x / this->y);
+    } else if (this->x != 0.0)
+    {
+        return Vector2d(-this->y / this->x, 1.0);
+    } else
+    {
+        return Vector2d(0, 0);
+    }
+}
+
+double Vector2d::dotProduct(Vector2d that)
+{
+    return (this->x * that.x) + (this->y * that.y);
 }
 
 Vector2d Vector2d::operator*(double k)
@@ -39,7 +74,7 @@ bool Vector2d::operator==(const Vector2d &v)
 
 Vector2d Vector2d::normalize()
 {
-    double l = this->distance(Vector2d(0, 0));
+    double l = this->length();
 
     return Vector2d(this->x / l, this->y / l);
 }

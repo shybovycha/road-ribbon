@@ -9,7 +9,14 @@ public:
     Vector2d();
     Vector2d(double _x, double _y);
 
-    double distance(Vector2d other);
+    double distanceTo(Vector2d other);
+    double angleTo(Vector2d other);
+    double dotProduct(Vector2d other);
+    double length();
+
+    Vector2d rotate(double angle);
+    Vector2d normalize();
+    Vector2d perpendicular();
 
     Vector2d operator*(double k);
 
@@ -18,7 +25,6 @@ public:
 
     bool operator==(const Vector2d &v);
 
-    Vector2d normalize();
 
     double x;
     double y;
