@@ -27,7 +27,7 @@ public:
 
     float roadWidth;
 
-    const static float ZOOM = 9.0;
+    const static float ZOOM = 7.0;
     const static float DEFAULT_ROAD_WIDTH = 15.0;
 
     enum RenderMode { POLYGON_SET, SINGLE_POLYGON, LINES_ONLY, CENTERS_ONLY };

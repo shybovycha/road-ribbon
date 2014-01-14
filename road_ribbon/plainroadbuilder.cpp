@@ -7,9 +7,6 @@ double sec(double x)
 
 PlainRoadBuilder::PlainRoadBuilder(QVector<Vector2d> _centers, float roadWidth, int mode)
 {
-    Vector2d v(2, 2), vp = v.perpendicular();
-    qDebug() << QString("(%1, %2).perpendicular() == (%3, %4)").arg(v.x).arg(v.y).arg(vp.x).arg(vp.y);
-
     if (_centers.size() < 3)
     {
         qDebug() << QString("Given %1 centers. That's not good - we can't build road that simple.").arg(_centers.size());
@@ -79,6 +76,54 @@ void PlainRoadBuilder::buildPolygonSet()
 
 void PlainRoadBuilder::buildSinglePolygon()
 {
+    int size = this->centers.size() * 2;
+    this->points.resize(size);
+
+    Vector2d _a;
+
+    for (int i = 1; i < this->centers.size() - 1; i++)
+    {
+        Vector2d A = this->centers[i - 1],
+                B = this->centers[i],
+                C = this->centers[i + 1],
+                BA = A - B;
+
+        double angle = 0; //M_PI / 16.0;
+
+        if (fabs((C - B).angleTo(A - B) - M_PI) < pow(10.0, -5.0))
+        {
+            angle = 0;
+        }
+
+        Vector2d a = BA.perpendicular().normalize().rotate(angle) * this->roadWidth;
+
+        if (_a.dotProduct(a) < 0)
+        {
+            a = a * -1;
+        }
+
+        _a = a;
+
+        Vector2d AL = A + a,
+                AR = A - a;
+
+        this->points[i - 1] = AL;
+        this->points[size - i] = AR;
+    }
+
+    if (false)
+    {
+        Vector2d A = this->centers[this->centers.size() - 1],
+                B = this->centers[this->centers.size() - 2],
+                BA = A - B,
+                a = BA.perpendicular().normalize().rotate(M_PI / 16.0) * this->roadWidth,
+                AL = A + a,
+                AR = A - a;
+
+        this->points[size - 2] = AL;
+        this->points[size - 1] = AR;
+    }
+
     /*this->points.resize(this->centers.size() * 2);
 
     for (int i = 2; i < this->centers.size() - 2; i += 2)
@@ -110,15 +155,15 @@ void PlainRoadBuilder::buildSinglePolygon()
 
         int ix = i - 2;
 
-        static int median = this->centers.size();
+        static int size = this->centers.size();
 
         this->points[(ix * 3) + 0] = A1L;
         this->points[(ix * 3) + 1] = OL;
         this->points[(ix * 3) + 2] = C1L;
 
-        this->points[median + (ix * 3) + 0] = A1R;
-        this->points[median + (ix * 3) + 1] = OR;
-        this->points[median + (ix * 3) + 2] = C1R;
+        this->points[size - (ix * 3) + 0] = A1R;
+        this->points[size - (ix * 3) + 1] = OR;
+        this->points[size - (ix * 3) + 2] = C1R;
     }*/
 }
 
