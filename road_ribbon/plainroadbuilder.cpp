@@ -23,7 +23,7 @@ PlainRoadBuilder::PlainRoadBuilder(QVector<SkeletonCenter> _centers, float roadW
 
         Vector2d xy = this->latlng2xy(_centers[i].location, origin);
 
-        center.position = Vector3d(xy.x, _centers[i].position.y / ZOOM, xy.y);
+        center.position = Vector3d(xy.x, _centers[i].position.y * (ZOOM * 4), xy.y);
 
         this->centers.push_back(center);
     }
@@ -406,4 +406,10 @@ void PlainRoadBuilder::toGLVertexArray(const QVector<Vector3d> &vertices, const 
     {
         glindices[index++] = indices[i];
     }
+}
+
+void PlainRoadBuilder::setUpCamera(Camera &camera)
+{
+    camera.position = this->centers[0].position + ((this->centers[1].position - this->centers[0].position).normalize() * 40);
+    camera.lookAt = this->centers[2].position;
 }

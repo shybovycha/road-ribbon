@@ -1,12 +1,19 @@
 #include "camera.h"
 
+Camera::Camera()
+{
+    this->position = Vector3d(0, 0, 0);
+    this->lookAt = Vector3d(0, 0, -1);
+    this->up = Vector3d(0, 1, 0);
+    this->left = Vector3d(1, 0, 0);
+}
+
 Camera::Camera(Vector3d _position, Vector3d _lookAt)
 {
     this->position = _position;
     this->lookAt = _lookAt;
     this->up = Vector3d(0, 1, 0);
     this->left = Vector3d(1, 0, 0);
-    this->forward = Vector3d(0, 0, -10);
 }
 
 void Camera::move(Vector3d translate)
@@ -28,7 +35,6 @@ void Camera::rotate(Vector3d angles)
 {
     this->position = (this->position - this->lookAt).rotate(this->up, angles.y) + this->lookAt;
     this->left = this->left.rotate(this->up, angles.y);
-    this->forward = this->forward.rotate(this->up, angles.y);
 
     this->position = (this->position - this->lookAt).rotate(this->left, angles.x) + this->lookAt;
 }

@@ -10,6 +10,7 @@
 
 #include "vector2d.h"
 #include "vector3d.h"
+#include "camera.h"
 #include "skeletoncenter.h"
 #include "boundingbox.h"
 
@@ -35,6 +36,7 @@ protected:
 public:
     PlainRoadBuilder(QVector<SkeletonCenter> centers, float roadWidth = DEFAULT_ROAD_WIDTH);
 
+    void setUpCamera(Camera &camera);
     void render(int mode, sf::RenderTarget *window);
 
     enum RenderMode { POLYGON_SET, SINGLE_POLYGON, LINES_ONLY, SURFACE };

@@ -24,7 +24,8 @@ int main(int argc, char *argv[])
 
     PlainRoadBuilder roadBuilder(parser.centers, 15.0);
 
-    Camera camera(Vector3d(0, 30, 10), Vector3d(0, 0, 0.0));
+    Camera camera; //(Vector3d(0, 30, 10), Vector3d(0, 0, 0.0));
+    roadBuilder.setUpCamera(camera);
 
     while (window.isOpen())
     {
