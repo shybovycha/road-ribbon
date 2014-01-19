@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet Quick Start Guide Example</title>
+	<meta charset="utf-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="leaflet/leaflet.css" />
+</head>
+<body>
+	<div id="map" style="width: 1200px; height: 600px"></div>
+
+	<script src="leaflet/leaflet.js"></script>
+	<script src="roadribbon_16012014_113134.js"></script>
+
+	<script>
+
+		var map = L.map('map').setView([ 50.4413, 30.523967 ], 10);
+
+		L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
+		}).addTo(map);
+
+		for (var i = 0; i < window.waypoints.length; i++) {
+			var pos = window.waypoints[i];
+
+			L.marker(pos).addTo(map);
+		}
+	</script>
+</body>
+</html>

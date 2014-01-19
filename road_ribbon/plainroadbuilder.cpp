@@ -5,7 +5,7 @@ double sec(double x)
     return 1.0 / cos(x);
 }
 
-PlainRoadBuilder::PlainRoadBuilder(QVector<Vector2d> _centers, float roadWidth, int mode)
+PlainRoadBuilder::PlainRoadBuilder(QVector<SkeletonCenter> _centers, float roadWidth)
 {
     if (_centers.size() < 3)
     {
@@ -13,79 +13,39 @@ PlainRoadBuilder::PlainRoadBuilder(QVector<Vector2d> _centers, float roadWidth, 
         return;
     }
 
-    Vector2d origin = this->latlng2xy(_centers[0]);
+    Vector2d origin = this->latlng2xy(_centers[0].location);
 
     for (int i = 1; i < _centers.size(); i++)
     {
-        while ((i < _centers.size() - 1) && (_centers[i + 1] == _centers[i])) i++;
+        while ((i < _centers.size() - 1) && (_centers[i + 1].location == _centers[i].location)) i++;
 
-        this->centers.push_back(this->latlng2xy(_centers[i], origin));
+        SkeletonCenter center = _centers[i];
+
+        Vector2d xy = this->latlng2xy(_centers[i].location, origin);
+
+        center.position = Vector3d(xy.x, _centers[i].position.y / ZOOM, xy.y);
+
+        this->centers.push_back(center);
     }
 
     this->roadWidth = roadWidth;
-
-    this->build(mode);
-
-    qDebug() << QString("Built polygon with %1 faces (%2 points)").arg(this->points.size() / 4).arg(this->points.size());
 }
 
-void PlainRoadBuilder::buildPolygonSet()
+QVector<sf::ConvexShape> PlainRoadBuilder::buildSinglePolygon()
 {
-    /*this->points.resize(this->centers.size() * 8);
+    QVector<sf::ConvexShape> shapes;
 
-    for (int i = 2; i < this->centers.size() - 2; i += 2)
-    {
-        QVector<Vector2d> sidePoints;
-        Vector2d A, B, C;
-        Vector2d A1L, A1R, B1L, B1R, B2L, B2R, C1L, C1R;
-
-        A = centers[i - 2];
-        B = centers[i - 1];
-        C = centers[i - 0];
-
-        sidePoints = this->getSidePoints(A, B);
-        A1L = sidePoints[0];
-        A1R = sidePoints[1];
-        B1L = sidePoints[2];
-        B1R = sidePoints[3];
-
-        sidePoints = this->getSidePoints(B, C);
-        B2L = sidePoints[0];
-        B2R = sidePoints[1];
-        C1L = sidePoints[2];
-        C1R = sidePoints[3];
-
-        Vector2d OL, OR;
-
-        OL = this->getCrossPoint(A1L, B1L, B2L, C1L);
-        OR = this->getCrossPoint(A1R, B1R, B2R, C1R);
-
-        int ix = i - 2;
-
-        this->points[(ix * 8) + 0] = (A1L);
-        this->points[(ix * 8) + 1] = (OL);
-        this->points[(ix * 8) + 2] = (OR);
-        this->points[(ix * 8) + 3] = (A1R);
-
-        this->points[(ix * 8) + 4] = (OL);
-        this->points[(ix * 8) + 5] = (B2L);
-        this->points[(ix * 8) + 6] = (B2R);
-        this->points[(ix * 8) + 7] = (OR);
-    }*/
-}
-
-void PlainRoadBuilder::buildSinglePolygon()
-{
     int size = this->centers.size() * 2;
-    this->points.resize(size);
+    sf::ConvexShape convex = this->createShape();
+    convex.setPointCount(size);
 
     Vector2d _a;
 
     for (int i = 1; i < this->centers.size() - 1; i++)
     {
-        Vector2d A = this->centers[i - 1],
-                B = this->centers[i],
-                C = this->centers[i + 1],
+        Vector2d A = this->centers[i - 1].planePos(),
+                B = this->centers[i].planePos(),
+                C = this->centers[i + 1].planePos(),
                 BA = A - B;
 
         double angle = 0; //M_PI / 16.0;
@@ -107,76 +67,43 @@ void PlainRoadBuilder::buildSinglePolygon()
         Vector2d AL = A + a,
                 AR = A - a;
 
-        this->points[i - 1] = AL;
-        this->points[size - i] = AR;
+        convex.setPoint(i - 1, AL.toSFML());
+        convex.setPoint(size - i, AR.toSFML());
     }
 
     if (false)
     {
-        Vector2d A = this->centers[this->centers.size() - 1],
-                B = this->centers[this->centers.size() - 2],
+        Vector2d A = this->centers[this->centers.size() - 1].planePos(),
+                B = this->centers[this->centers.size() - 2].planePos(),
                 BA = A - B,
                 a = BA.perpendicular().normalize().rotate(M_PI / 16.0) * this->roadWidth,
                 AL = A + a,
                 AR = A - a;
 
-        this->points[size - 2] = AL;
-        this->points[size - 1] = AR;
+        convex.setPoint(size - 2, AL.toSFML());
+        convex.setPoint(size - 1, AR.toSFML());
     }
 
-    /*this->points.resize(this->centers.size() * 2);
+    shapes.push_back(convex);
 
-    for (int i = 2; i < this->centers.size() - 2; i += 2)
-    {
-        QVector<Vector2d> sidePoints;
-        Vector2d A, B, C;
-        Vector2d A1L, A1R, B1L, B1R, B2L, B2R, C1L, C1R;
-
-        A = centers[i - 2];
-        B = centers[i - 1];
-        C = centers[i - 0];
-
-        sidePoints = this->getSidePoints(A, B, C);
-        A1L = sidePoints[0];
-        A1R = sidePoints[1];
-        B1L = sidePoints[2];
-        B1R = sidePoints[3];
-
-        sidePoints = this->getSidePoints(B, C);
-        B2L = sidePoints[0];
-        B2R = sidePoints[1];
-        C1L = sidePoints[2];
-        C1R = sidePoints[3];
-
-        Vector2d OL, OR;
-
-        OL = this->getCrossPoint(A1L, B1L, B2L, C1L);
-        OR = this->getCrossPoint(A1R, B1R, B2R, C1R);
-
-        int ix = i - 2;
-
-        static int size = this->centers.size();
-
-        this->points[(ix * 3) + 0] = A1L;
-        this->points[(ix * 3) + 1] = OL;
-        this->points[(ix * 3) + 2] = C1L;
-
-        this->points[size - (ix * 3) + 0] = A1R;
-        this->points[size - (ix * 3) + 1] = OR;
-        this->points[size - (ix * 3) + 2] = C1R;
-    }*/
+    return shapes;
 }
 
-void PlainRoadBuilder::buildLinesOnly()
+void PlainRoadBuilder::buildLinesOnly(QVector<sf::Vertex>* points, int *lineCount)
 {
+    int N = this->centers.size() * 2;
+    *lineCount = N / 2;
+    points->resize(N);
+    BoundingBox bbox;
+
     for (int i = 1; i < this->centers.size() - 1; i++)
     {
-        Vector2d A = this->centers[i - 1],
-                B = this->centers[i],
-                C = this->centers[i + 1],
+        Vector2d A = this->centers[i - 1].planePos(),
+                B = this->centers[i].planePos(),
+                C = this->centers[i + 1].planePos(),
                 BA = A - B;
 
-        double angle = M_PI / 16.0;
+        double angle = 0; // M_PI / 16.0;
 
         if (fabs((C - B).angleTo(A - B) - M_PI) < pow(10.0, -5.0))
         {
@@ -187,51 +114,211 @@ void PlainRoadBuilder::buildLinesOnly()
                 AL = A + a,
                 AR = A - a;
 
-        this->points.push_back(AL);
-        this->points.push_back(AR);
+        bbox.extend(AL);
+        bbox.extend(AR);
+
+        points->push_back(sf::Vertex(AL.toSFML()));
+        points->push_back(sf::Vertex(AR.toSFML()));
     }
 
     {
-        Vector2d A = this->centers[this->centers.size() - 1],
-                B = this->centers[this->centers.size() - 2],
+        Vector2d A = this->centers[this->centers.size() - 1].planePos(),
+                B = this->centers[this->centers.size() - 2].planePos(),
                 BA = A - B,
                 a = BA.perpendicular().normalize().rotate(M_PI / 16.0) * this->roadWidth,
                 AL = A + a,
                 AR = A - a;
 
-        this->points.push_back(AL);
-        this->points.push_back(AR);
+        bbox.extend(AL);
+        bbox.extend(AR);
+
+        points->push_back(sf::Vertex(AL.toSFML()));
+        points->push_back(sf::Vertex(AR.toSFML()));
     }
 }
 
-void PlainRoadBuilder::buildCentersOnly()
+void PlainRoadBuilder::buildPolygonSet(QVector<Vector3d>* vertices, QVector<int>* indices)
 {
-    for (int i = 0; i < this->centers.size(); i++)
+    for (int i = 1; i < this->centers.size() - 1; i++)
     {
-        this->points.push_back(centers[i]);
+        Vector2d A = this->centers[i - 1].planePos(),
+                B = this->centers[i].planePos(),
+                C = this->centers[i + 1].planePos(),
+                BA = A - B;
+
+        double angle = 0; // M_PI / 16.0;
+
+        if (fabs((C - B).angleTo(A - B) - M_PI) < pow(10.0, -5.0))
+        {
+            angle = 0;
+        }
+
+        Vector2d a = BA.perpendicular().normalize().rotate(angle) * this->roadWidth,
+                AL = A + a,
+                AR = A - a;
+
+        Vector3d AL3D = Vector3d(AL.x, this->centers[i].position.y, AL.y),
+                AR3D = Vector3d(AR.x, this->centers[i].position.y, AR.y);
+
+        int index = vertices->size();
+
+        if (i == 1)
+        {
+            vertices->push_back(AL3D);
+            vertices->push_back(AR3D);
+        } else
+        {
+            vertices->push_back(AR3D);
+            vertices->push_back(AL3D);
+            vertices->push_back(AL3D);
+            vertices->push_back(AR3D);
+
+            indices->push_back(index - 2);
+            indices->push_back(index - 1);
+            indices->push_back(index + 0);
+            indices->push_back(index + 1);
+        }
+    }
+
+    {
+        Vector2d A = this->centers[this->centers.size() - 1].planePos(),
+                B = this->centers[this->centers.size() - 2].planePos(),
+                BA = A - B,
+                a = BA.perpendicular().normalize().rotate(M_PI / 16.0) * this->roadWidth,
+                AL = A + a,
+                AR = A - a;
+
+        Vector3d AL3D = Vector3d(AL.x, this->centers[this->centers.size() - 1].position.y, AL.y),
+                AR3D = Vector3d(AR.x, this->centers[this->centers.size() - 1].position.y, AR.y);
+
+        vertices->push_back(AL3D);
+        vertices->push_back(AR3D);
+    }
+
+    /**primitiveCount = this->centers.size() - 1;
+
+    for (int i = 1; i < this->centers.size() - 1; i++)
+    {
+        Vector3d A = this->centers[i - 1].position,
+                B = this->centers[i].position,
+                BA = A - B;
+
+        Vector2d BAplanar(BA.x, BA.z),
+                BAperp = BAplanar.perpendicular();
+
+        Vector3d a = (Vector3d(BAperp.x, 0, BAperp.y)).normalize() * this->roadWidth,
+                AL = A + a,
+                AR = A - a;
+
+        AR.y = 0;
+        AL.y = 0;
+
+        int index = vertices->size();
+
+        if (i == 1)
+        {
+            vertices->push_back(AL);
+            vertices->push_back(AR);
+
+            indices->push_back(index + 0);
+            indices->push_back(index + 1);
+        } else
+        {
+            vertices->push_back(AR);
+            vertices->push_back(AL);
+            vertices->push_back(AL);
+            vertices->push_back(AR);
+
+            indices->push_back(index - 2);
+            indices->push_back(index - 1);
+            indices->push_back(index + 0);
+            indices->push_back(index + 1);
+        }
+    }
+
+    {
+        Vector3d A = this->centers[this->centers.size() - 1].position,
+                B = this->centers[this->centers.size() - 2].position,
+                BA = A - B;
+
+        Vector2d BAplanar(BA.x, BA.z),
+                BAperp = BAplanar.perpendicular();
+
+        Vector3d a = (Vector3d(BAperp.x, 0, BAperp.y)).normalize() * this->roadWidth,
+                AL = A + a,
+                AR = A - a;
+
+        AR.y = 0;
+        AL.y = 0;
+
+        vertices->push_back(AR);
+        vertices->push_back(AL);
+    }*/
+}
+
+void PlainRoadBuilder::render(int mode, sf::RenderTarget *window)
+{
+    if (mode == SINGLE_POLYGON)
+    {
+        QVector<sf::ConvexShape> shapes = this->buildSinglePolygon();
+    }
+
+    if (mode == LINES_ONLY)
+    {
+        QVector<sf::Vertex> points;
+        int lineCount;
+        this->buildLinesOnly(&points, &lineCount);
+
+        for (int i = 0; i < points.size() - 2; i += 2)
+        {
+            sf::Vertex line[] = {
+                points[i],
+                points[i + 1]
+            };
+
+            window->draw(line, 2, sf::Lines);
+        }
+    }
+
+    if (mode == SURFACE)
+    {
+        static QVector<Vector3d> vertices;
+        static QVector<int> indices;
+
+        if (vertices.empty())
+        {
+            this->buildPolygonSet(&vertices, &indices);
+        }
+
+        GLfloat *glvertices = 0;
+        GLuint *glindices = 0;
+
+        toGLVertexArray(vertices, indices, glvertices, glindices);
+
+        glMatrixMode(GL_MODELVIEW);
+
+        glPushMatrix();
+        glEnableClientState(GL_VERTEX_ARRAY);
+
+        glVertexPointer(3, GL_FLOAT, 0, glvertices);
+
+        glColor3f(0.5, 0.5, 0.7);
+        glDrawElements(GL_QUADS, indices.size(), GL_UNSIGNED_INT, glindices);
+
+        glDisableClientState(GL_VERTEX_ARRAY);
+        glPopMatrix();
     }
 }
 
-void PlainRoadBuilder::build(int mode)
+sf::ConvexShape PlainRoadBuilder::createShape()
 {
-    switch (mode)
-    {
-        case POLYGON_SET:
-            this->buildPolygonSet();
-        break;
+    sf::ConvexShape convex;
 
-        case SINGLE_POLYGON:
-            this->buildSinglePolygon();
-        break;
+    convex.setFillColor(sf::Color(0, 0, 0, 0));
+    convex.setOutlineColor(sf::Color(100, 100, 150));
+    convex.setOutlineThickness(1);
 
-        case LINES_ONLY:
-            this->buildLinesOnly();
-        break;
-
-        case CENTERS_ONLY:
-            this->buildCentersOnly();
-        break;
-    }
+    return convex;
 }
 
 Vector2d PlainRoadBuilder::latlng2xy(Vector2d latlng, Vector2d origin)
@@ -297,4 +384,26 @@ Vector2d PlainRoadBuilder::getCrossPoint(Vector2d p1, Vector2d p2, Vector2d p3, 
     ox = (C1 - (oy * B1)) / A1;
 
     return Vector2d(ox, oy);
+}
+
+void PlainRoadBuilder::toGLVertexArray(const QVector<Vector3d> &vertices, const QVector<int> &indices, GLfloat *&glvertices, GLuint *&glindices)
+{
+    glvertices = new GLfloat[vertices.size() * 3];
+    glindices = new GLuint[indices.size()];
+
+    int index = 0;
+
+    for (int i = 0; i < vertices.size(); i++)
+    {
+        glvertices[index++] = vertices[i].x;
+        glvertices[index++] = vertices[i].y;
+        glvertices[index++] = vertices[i].z;
+    }
+
+    index = 0;
+
+    for (int i = 0; i < indices.size(); i++)
+    {
+        glindices[index++] = indices[i];
+    }
 }

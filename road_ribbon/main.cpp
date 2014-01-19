@@ -7,80 +7,27 @@
 
 #include "gpsdataparser.h"
 #include "plainroadbuilder.h"
+#include "camera.h"
 
 int main(int argc, char *argv[])
 {
-    /*if (argc < 2)
-    {
-        printf("Not enough arguments\n");
-        printf("Usage: %s [GPS data file]\n", argv[0]);
+    sf::ContextSettings settings;
+    settings.depthBits = 24;
+    settings.stencilBits = 8;
+    settings.antialiasingLevel = 8;
 
-        return 1;
-    }*/
-
-    sf::RenderWindow window(sf::VideoMode(800, 600), "RoadRibbon", sf::Style::Default, sf::ContextSettings(32));
+    sf::RenderWindow window(sf::VideoMode(800, 600), "RoadRibbon", sf::Style::Default, settings);
 
     window.setVerticalSyncEnabled(true);
 
-    // GPSDataParser parser(argv[1]);
-    GPSDataParser parser("gprmc.txt");
+    GPSDataParser parser("roadribbon_16012014_113134.txt");
 
-    // parser.toJS(argv[2]);
+    PlainRoadBuilder roadBuilder(parser.centers, 15.0);
 
-    sf::Text text;
-
-    sf::Font font;
-
-    font.loadFromFile("arial.ttf");
-
-    // select the font
-    text.setFont(font); // font is a sf::Font
-
-    // set the string to display
-    text.setString("Hello world");
-
-    // set the character size
-    text.setCharacterSize(24); // in pixels, not points!
-
-    // set the color
-    text.setColor(sf::Color::Red);
-
-    // set the text style
-    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
-
-    PlainRoadBuilder roadBuilder(parser.points, 15.0, PlainRoadBuilder::SINGLE_POLYGON);
-
-    sf::View view = window.getDefaultView();
-
-    view.move(-50, -100);
-
-    window.setView(view);
-
-    sf::ConvexShape convex;
-
-    convex.setFillColor(sf::Color(0, 0, 0, 0));
-    convex.setOutlineColor(sf::Color(100, 100, 150));
-    convex.setOutlineThickness(1);
-
-    int N = roadBuilder.points.size();
-    convex.setPointCount(N);
-
-    for (int i = 0; i < N; i++)
-    {
-        convex.setPoint(i, sf::Vector2f(roadBuilder.points[i + 0].x, roadBuilder.points[i + 0].y));
-
-        /*convex.setPointCount(4);
-
-        convex.setPoint(0, sf::Vector2f(roadBuilder.points[i + 0].x, roadBuilder.points[i + 0].y));
-        convex.setPoint(1, sf::Vector2f(roadBuilder.points[i + 1].x, roadBuilder.points[i + 1].y));
-        convex.setPoint(2, sf::Vector2f(roadBuilder.points[i + 2].x, roadBuilder.points[i + 2].y));
-        convex.setPoint(3, sf::Vector2f(roadBuilder.points[i + 3].x, roadBuilder.points[i + 3].y));*/
-    }
+    Camera camera(Vector3d(0, 30, 10), Vector3d(0, 0, 0.0));
 
     while (window.isOpen())
     {
-        window.clear();
-
         sf::Event event;
 
         while (window.pollEvent(event))
@@ -91,30 +38,78 @@ int main(int argc, char *argv[])
             } else if (event.type == sf::Event::Resized)
             {
                 glViewport(0, 0, event.size.width, event.size.height);
+                glMatrixMode(GL_PROJECTION);
+                glLoadIdentity();
+
+                gluPerspective(90.0f, (float) event.size.width / (float) event.size.height, 0.1f, 10000.0f);
+
+                glMatrixMode(GL_MODELVIEW);
+                glLoadIdentity();
             }
         }
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Add))
-            view.zoom(0.05);
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Subtract))
-            view.zoom(-0.05);
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-            view.move(0, -10);
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-            view.move(0, 10);
-
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-            view.move(-10, 0);
+            camera.rotate(Vector3d(0, -M_PI / 100.0, 0));
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-            view.move(10, 0);
+            camera.rotate(Vector3d(0, M_PI / 100.0, 0));
 
-        window.draw(convex);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+            camera.rotate(Vector3d(-M_PI / 100.0, 0, 0));
 
-        window.setView(view);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+            camera.rotate(Vector3d(M_PI / 100.0, 0, 0));
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+            camera.move(Vector3d(0, 0, -1.0));
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+            camera.move(Vector3d(0, 0, 1.0));
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+            camera.move(Vector3d(-1.0, 0, 0));
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+            camera.move(Vector3d(1.0, 0, 0));
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+            camera.move(Vector3d(0, 1, 0));
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+            camera.move(Vector3d(0, -1, 0));
+
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        camera.render();
+
+        roadBuilder.render(PlainRoadBuilder::SURFACE, &window);
+
+        glBegin(GL_LINES);
+            glColor3f(1.0, 1.0, 1.0);
+            glVertex3f(camera.lookAt.x, camera.lookAt.y, camera.lookAt.z);
+            glVertex3f(camera.lookAt.x, camera.lookAt.y + 10, camera.lookAt.z);
+
+            glVertex3f(camera.lookAt.x - 1, camera.lookAt.y + 9, camera.lookAt.z);
+            glVertex3f(camera.lookAt.x + 0, camera.lookAt.y + 10, camera.lookAt.z);
+
+            glVertex3f(camera.lookAt.x + 0, camera.lookAt.y + 10, camera.lookAt.z);
+            glVertex3f(camera.lookAt.x + 1, camera.lookAt.y + 9, camera.lookAt.z);
+
+            glColor3f(0.0, 0.0, 1.0);
+            glVertex3f(camera.lookAt.x, camera.lookAt.y, camera.lookAt.z);
+            glVertex3f(camera.lookAt.x + 10, camera.lookAt.y, camera.lookAt.z);
+
+            glColor3f(1.0, 0.0, 0.0);
+            glVertex3f(camera.lookAt.x, camera.lookAt.y, camera.lookAt.z);
+            glVertex3f(camera.lookAt.x, camera.lookAt.y, camera.lookAt.z + 10);
+
+            glColor3f(0.6, 0.6, 0.5);
+            Vector3d v1 = camera.position;
+            v1.y = camera.lookAt.y;
+            Vector3d v = (camera.lookAt - v1).normalize() * 10.0;
+            glVertex3f(camera.lookAt.x, camera.lookAt.y, camera.lookAt.z);
+            glVertex3f(camera.lookAt.x + v.x, camera.lookAt.y, camera.lookAt.z + v.z);
+        glEnd();
 
         window.display();
     }

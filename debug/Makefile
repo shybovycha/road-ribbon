@@ -48,11 +48,19 @@ OBJECTS_DIR   = ./
 SOURCES       = ../road_ribbon/main.cpp \
 		../road_ribbon/gpsdataparser.cpp \
 		../road_ribbon/vector2d.cpp \
-		../road_ribbon/plainroadbuilder.cpp 
+		../road_ribbon/plainroadbuilder.cpp \
+		../road_ribbon/skeletoncenter.cpp \
+		../road_ribbon/vector3d.cpp \
+		../road_ribbon/boundingbox.cpp \
+		../road_ribbon/camera.cpp 
 OBJECTS       = main.o \
 		gpsdataparser.o \
 		vector2d.o \
-		plainroadbuilder.o
+		plainroadbuilder.o \
+		skeletoncenter.o \
+		vector3d.o \
+		boundingbox.o \
+		camera.o
 DIST          = /opt/Qt/5.2.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt/5.2.0/gcc_64/mkspecs/common/shell-unix.conf \
 		/opt/Qt/5.2.0/gcc_64/mkspecs/common/unix.conf \
@@ -406,7 +414,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/road_ribbon1.0.0 || mkdir -p .tmp/road_ribbon1.0.0
-	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/road_ribbon1.0.0/ && $(COPY_FILE) --parents ../road_ribbon/gpsdataparser.h ../road_ribbon/vector2d.h ../road_ribbon/plainroadbuilder.h .tmp/road_ribbon1.0.0/ && $(COPY_FILE) --parents ../road_ribbon/main.cpp ../road_ribbon/gpsdataparser.cpp ../road_ribbon/vector2d.cpp ../road_ribbon/plainroadbuilder.cpp .tmp/road_ribbon1.0.0/ && (cd `dirname .tmp/road_ribbon1.0.0` && $(TAR) road_ribbon1.0.0.tar road_ribbon1.0.0 && $(COMPRESS) road_ribbon1.0.0.tar) && $(MOVE) `dirname .tmp/road_ribbon1.0.0`/road_ribbon1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/road_ribbon1.0.0
+	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/road_ribbon1.0.0/ && $(COPY_FILE) --parents ../road_ribbon/gpsdataparser.h ../road_ribbon/vector2d.h ../road_ribbon/plainroadbuilder.h ../road_ribbon/skeletoncenter.h ../road_ribbon/vector3d.h ../road_ribbon/boundingbox.h ../road_ribbon/camera.h .tmp/road_ribbon1.0.0/ && $(COPY_FILE) --parents ../road_ribbon/main.cpp ../road_ribbon/gpsdataparser.cpp ../road_ribbon/vector2d.cpp ../road_ribbon/plainroadbuilder.cpp ../road_ribbon/skeletoncenter.cpp ../road_ribbon/vector3d.cpp ../road_ribbon/boundingbox.cpp ../road_ribbon/camera.cpp .tmp/road_ribbon1.0.0/ && (cd `dirname .tmp/road_ribbon1.0.0` && $(TAR) road_ribbon1.0.0.tar road_ribbon1.0.0 && $(COMPRESS) road_ribbon1.0.0.tar) && $(MOVE) `dirname .tmp/road_ribbon1.0.0`/road_ribbon1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/road_ribbon1.0.0
 
 
 clean:compiler_clean 
@@ -528,7 +536,11 @@ main.o: ../road_ribbon/main.cpp /opt/Qt/5.2.0/gcc_64/include/QtCore/QCoreApplica
 		/opt/Qt/5.2.0/gcc_64/include/QtCore/qshareddata.h \
 		/opt/Qt/5.2.0/gcc_64/include/QtCore/QVector \
 		/opt/Qt/5.2.0/gcc_64/include/QtCore/QDebug \
-		../road_ribbon/vector2d.h
+		../road_ribbon/vector2d.h \
+		../road_ribbon/vector3d.h \
+		../road_ribbon/skeletoncenter.h \
+		../road_ribbon/plainroadbuilder.h \
+		../road_ribbon/boundingbox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../road_ribbon/main.cpp
 
 gpsdataparser.o: ../road_ribbon/gpsdataparser.cpp ../road_ribbon/gpsdataparser.h \
@@ -613,7 +625,9 @@ gpsdataparser.o: ../road_ribbon/gpsdataparser.cpp ../road_ribbon/gpsdataparser.h
 		/opt/Qt/5.2.0/gcc_64/include/QtCore/qshareddata.h \
 		/opt/Qt/5.2.0/gcc_64/include/QtCore/QVector \
 		/opt/Qt/5.2.0/gcc_64/include/QtCore/QDebug \
-		../road_ribbon/vector2d.h
+		../road_ribbon/vector2d.h \
+		../road_ribbon/vector3d.h \
+		../road_ribbon/skeletoncenter.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gpsdataparser.o ../road_ribbon/gpsdataparser.cpp
 
 vector2d.o: ../road_ribbon/vector2d.cpp ../road_ribbon/vector2d.h
@@ -695,8 +709,27 @@ plainroadbuilder.o: ../road_ribbon/plainroadbuilder.cpp ../road_ribbon/plainroad
 		/opt/Qt/5.2.0/gcc_64/include/QtCore/qshareddata.h \
 		/opt/Qt/5.2.0/gcc_64/include/QtCore/qset.h \
 		/opt/Qt/5.2.0/gcc_64/include/QtCore/qcontiguouscache.h \
-		../road_ribbon/vector2d.h
+		../road_ribbon/vector2d.h \
+		../road_ribbon/vector3d.h \
+		../road_ribbon/skeletoncenter.h \
+		../road_ribbon/boundingbox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o plainroadbuilder.o ../road_ribbon/plainroadbuilder.cpp
+
+skeletoncenter.o: ../road_ribbon/skeletoncenter.cpp ../road_ribbon/skeletoncenter.h \
+		../road_ribbon/vector2d.h \
+		../road_ribbon/vector3d.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o skeletoncenter.o ../road_ribbon/skeletoncenter.cpp
+
+vector3d.o: ../road_ribbon/vector3d.cpp ../road_ribbon/vector3d.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o vector3d.o ../road_ribbon/vector3d.cpp
+
+boundingbox.o: ../road_ribbon/boundingbox.cpp ../road_ribbon/boundingbox.h \
+		../road_ribbon/vector2d.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o boundingbox.o ../road_ribbon/boundingbox.cpp
+
+camera.o: ../road_ribbon/camera.cpp ../road_ribbon/camera.h \
+		../road_ribbon/vector3d.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o camera.o ../road_ribbon/camera.cpp
 
 ####### Install
 

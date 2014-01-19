@@ -10,6 +10,8 @@
 #include <QDebug>
 
 #include "vector2d.h"
+#include "vector3d.h"
+#include "skeletoncenter.h"
 
 class GPSDataParser
 {
@@ -20,11 +22,20 @@ public:
     void toJS(QString filename);
     void parse(QString filename);
 
-    QVector<Vector2d> points;
+    QVector<SkeletonCenter> centers;
 
 protected:
     double str2deg(QString str);
-    void processLine(QString line);
+    void processLines(QString gprmcLine, QString pgrmzLine);
+    Vector2d processGPRMCLine(QString line);
+    double processPGRMZLine(QString line);
+
+    void init();
+
+    QRegExp gprmcRe;
+    QRegExp pgrmzRe;
+
+    const double ALTITUDE_MAGNIFIER = 0.1;
 };
 
 #endif // GPSDATAPARSER_H

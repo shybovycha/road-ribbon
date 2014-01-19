@@ -78,3 +78,8 @@ Vector2d Vector2d::normalize()
 
     return Vector2d(this->x / l, this->y / l);
 }
+
+sf::Vector2f Vector2d::toSFML()
+{
+    return sf::Vector2f(this->x, this->y);
+}

@@ -2,6 +2,7 @@
 #define VECTOR2D_H
 
 #include <math.h>
+#include <SFML/Graphics.hpp>
 
 class Vector2d
 {
@@ -23,8 +24,9 @@ public:
     Vector2d operator+(const Vector2d &v);
     Vector2d operator-(const Vector2d &v);
 
-    bool operator==(const Vector2d &v);
+    sf::Vector2f toSFML();
 
+    bool operator==(const Vector2d &v);
 
     double x;
     double y;
