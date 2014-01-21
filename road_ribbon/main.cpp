@@ -30,6 +30,8 @@ int main(int argc, char *argv[])
 
     glShadeModel(GL_SMOOTH);
 
+    bool windowIsActive = true;
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -39,7 +41,9 @@ int main(int argc, char *argv[])
             if (event.type == sf::Event::Closed)
             {
                 window.close();
-            } else if (event.type == sf::Event::Resized)
+            }
+
+            if (event.type == sf::Event::Resized)
             {
                 glViewport(0, 0, event.size.width, event.size.height);
                 glMatrixMode(GL_PROJECTION);
@@ -50,6 +54,21 @@ int main(int argc, char *argv[])
                 glMatrixMode(GL_MODELVIEW);
                 glLoadIdentity();
             }
+
+            if (event.type == sf::Event::LostFocus)
+            {
+                windowIsActive = false;
+            }
+
+            if (event.type == sf::Event::GainedFocus)
+            {
+                windowIsActive = true;
+            }
+        }
+
+        if (!windowIsActive)
+        {
+            continue;
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
