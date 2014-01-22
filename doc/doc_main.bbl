@@ -1,0 +1,39 @@
+\begin{thebibliography}{1}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\selectlanguage{#1}\fi}
+\providecommand*{\href}[2]{{\small #2}}
+\providecommand*{\url}[1]{{\small #1}}
+\providecommand*{\BibUrl}[1]{\url{#1}}
+\providecommand{\BibAnnote}[1]{}
+\providecommand*{\BibEmph}[1]{#1}
+\ProvideTextCommandDefault{\cyrdash}{\hbox to.8em{--\hss--}}
+\providecommand*{\BibDash}{\ifdim\lastskip>0pt\unskip\nobreak\hskip.2em\fi
+\cyrdash\hskip.2em\ignorespaces}
+
+\bibitem{website:osm}
+\selectlanguageifdefined{english}
+\BibEmph{Community~W.} Osm. \BibDash
+\newblock URL: \BibUrl{http://en.wikipedia.org/wiki/OpenStreetMap}.
+
+\bibitem{website:great_circle_distance}
+\selectlanguageifdefined{english}
+\BibEmph{Community~W.} Great circle distance. \BibDash
+\newblock URL: \BibUrl{http://en.wikipedia.org/wiki/Great-circle_distance}.
+
+\bibitem{website:gps_receiver}
+\selectlanguageifdefined{english}
+\BibEmph{Community~W.} Gps-receiver. \BibDash
+\newblock URL: \BibUrl{http://en.wikipedia.org/wiki/GPS-receiver}.
+
+\bibitem{website:nmea_0183}
+\selectlanguageifdefined{english}
+\BibEmph{Community~W.} Nmea-0183. \BibDash
+\newblock URL: \BibUrl{http://en.wikipedia.org/wiki/NMEA\_0183}.
+
+\bibitem{website:nmea_2000}
+\selectlanguageifdefined{english}
+\BibEmph{Community~W.} Nmea-2000. \BibDash
+\newblock URL: \BibUrl{http://en.wikipedia.org/wiki/NMEA\_2000}.
+
+\end{thebibliography}
