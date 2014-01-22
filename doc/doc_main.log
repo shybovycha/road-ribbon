@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.1.19)  22 JAN 2014 01:18
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.1.19)  22 JAN 2014 17:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1124,78 +1124,149 @@ Overfull \hbox (314.65253pt too wide) in paragraph at lines 404--405
 [][] 
  []
 
-[21] [22 <./images/perpendicular_1_1.png>] [23]
+[21] [22 <./images/perpendicular_1_1.png>]
+<images/camera2.png, id=109, 805.0075pt x 629.35126pt>
+File: images/camera2.png Graphic file (type png)
+
+<use images/camera2.png>
+Package pdftex.def Info: images/camera2.png used on input line 430.
+(pdftex.def)             Requested size: 402.50278pt x 314.67485pt.
+ [23] [24 <./images/camera2.png>]
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
+) [25] [26]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 527.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <14.4> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 527.
+
+Overfull \hbox (26.20905pt too wide) in paragraph at lines 533--534
+[][][][][][][][][][][][][][][][][][] 
+ []
+
+[27]
+Overfull \hbox (9.76047pt too wide) in paragraph at lines 540--541
+[][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (17.98476pt too wide) in paragraph at lines 541--543
+[][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (1.53618pt too wide) in paragraph at lines 544--545
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[28] [29] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
+)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
 )
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
-File: lstlang2.sty 2013/06/27 1.5pre1 listings language file
-) [24] [25]
-[26] [27]
-Overfull \hbox (4.9879pt too wide) in paragraph at lines 513--514
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2013/07/10 1.5 (Carsten Heinz)
+) [30] [31]
+Overfull \hbox (30.83194pt too wide) in paragraph at lines 718--720
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[32] [33]
+Overfull \hbox (9.68692pt too wide) in paragraph at lines 802--803
+[][][][][][][][][][][][][][][][][] 
+ []
+
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 815.
+[34] [35] [36] [37]
+Overfull \hbox (8.52692pt too wide) in paragraph at lines 985--986
+[]\T2A/cmr/m/n/14.4 Даний клас за-сто-со-ву-№-ться для пе-ре-тво-рень ма-три-цi
+ \T2A/cmr/m/it/14.4 GL_MODELVIEW\T2A/cmr/m/n/14.4 . 
+ []
+
+[38] [39] [40] <images/results1.png, id=170, 1216.545pt x 613.29124pt>
+File: images/results1.png Graphic file (type png)
+
+<use images/results1.png>
+Package pdftex.def Info: images/results1.png used on input line 1063.
+(pdftex.def)             Requested size: 425.79713pt x 214.65514pt.
+
+<images/results2.png, id=171, 805.0075pt x 629.35126pt>
+File: images/results2.png Graphic file (type png)
+
+<use images/results2.png>
+Package pdftex.def Info: images/results2.png used on input line 1066.
+(pdftex.def)             Requested size: 402.50278pt x 314.67485pt.
+ [41 <./images/results1.png>] [42 <./images/results2.png>] [43]
+Overfull \hbox (4.9879pt too wide) in paragraph at lines 1087--1088
 \T2A/cmr/m/n/14.4 з цих пи-тань (ди-ре-кти-ви Ра-ди ™в-ро-пей-сько-го со-ю-зу 9
 0/270/™ЕС, 89/391/™ЕС,
  []
 
 
-Overfull \hbox (6.67526pt too wide) in paragraph at lines 520--521
+Overfull \hbox (6.67526pt too wide) in paragraph at lines 1094--1095
 []\T2A/cmr/m/n/14.4 робочi мi-сця пi-ло-тiв, чи водiЁв-операторiв транс-порт-ни
 х за-со-бiв, обла-
  []
 
-[28]
-Overfull \hbox (0.60307pt too wide) in paragraph at lines 538--539
+[44]
+Overfull \hbox (0.60307pt too wide) in paragraph at lines 1112--1113
 []\T2A/cmr/m/n/14.4 належнi умо-ви освi-тле-н-ня при-мi-ще-н-ня i мi-сця ро-бi-
 тни-ка, вiд-су-тнiсть
  []
 
-[29]
-Overfull \hbox (1.93176pt too wide) in paragraph at lines 554--555
+[45]
+Overfull \hbox (1.93176pt too wide) in paragraph at lines 1128--1129
 \T2A/cmr/m/n/14.4 нормативно-технiчноЁ й екс-плу-а-та-цiй-ноЁ до-ку-мен-та-цiЁ 
 заводу-виробника ЕОМ,
  []
 
-[30] [31] [32]
-Overfull \hbox (7.11337pt too wide) in paragraph at lines 623--624
+[46] [47] [48]
+Overfull \hbox (7.11337pt too wide) in paragraph at lines 1197--1198
 []\T2A/cmr/m/n/14.4 Рiвнi уль-тра-фi-о-ле-то-во-го ви-про-мi-ню-ва-н-ня не по-в
 ин-нi пе-ре-ви-щу-ва-ти при-
  []
 
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 635--638
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 1209--1212
 \T2A/cmr/m/n/14.4 ре-жи-мiв.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 635--638
+Underfull \hbox (badness 10000) in paragraph at lines 1209--1212
 
  []
 
 
-Overfull \hbox (8.45828pt too wide) in paragraph at lines 641--642
+Overfull \hbox (8.45828pt too wide) in paragraph at lines 1215--1216
 []\T2A/cmr/m/n/14.4 Лiнiя еле-ктро-ме-ре-жi для жив-ле-н-ня ЕОМ, пе-ри-фе-рiй-н
 их при-стро-Ёв ЕОМ
  []
 
-[34]
-Overfull \hbox (2.73978pt too wide) in paragraph at lines 657--658
+[50]
+Overfull \hbox (2.73978pt too wide) in paragraph at lines 1231--1232
 []\T2A/cmr/m/n/14.4 Неприпустиме пiд-клю-че-н-ня ЕОМ, пе-ри-фе-рiй-них при-стро
 -Ёв ЕОМ i уста-
  []
 
-[35] [36]
-Overfull \hbox (0.45589pt too wide) in paragraph at lines 694--695
+[51] [52]
+Overfull \hbox (0.45589pt too wide) in paragraph at lines 1268--1269
 []\T2A/cmr/m/n/14.4 Недопустимо ви-ко-ри-ста-н-ня клем фун-кцiо-наль-но-го за-з
 ем-ле-н-ня для пiд-
  []
 
-[37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47]
-Overfull \hbox (6.1538pt too wide) in paragraph at lines 910--911
+[53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63]
+Overfull \hbox (6.1538pt too wide) in paragraph at lines 1484--1485
 []\T2A/cmr/m/n/14.4 За без-пе-ку екс-плу-а-та-цiЁ, об-слу-го-ву-ва-н-ня, ре-мон
 -ту i на-ла-го-дже-н-ня ЕОМ,
  []
 
-[48]
+[64]
 No file doc_main.bbl.
 
 AED: lastpage setting LastPage
@@ -1206,13 +1277,13 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 8619 strings out of 493307
- 124381 string characters out of 6139905
- 204051 words of memory out of 5000000
- 11822 multiletter control sequences out of 15000+600000
- 20384 words of font info for 42 fonts, out of 8000000 for 9000
+ 8982 strings out of 493307
+ 129234 string characters out of 6139905
+ 220959 words of memory out of 5000000
+ 12169 multiletter control sequences out of 15000+600000
+ 25029 words of font info for 60 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 50i,11n,42p,1761b,1106s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 50i,11n,60p,1761b,1715s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t2a.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
@@ -1231,10 +1302,10 @@ m-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb
 onts/type1/public/cm-super/sfsl1000.pfb></usr/share/texmf/fonts/type1/public/cm
 -super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1440.pfb>
 
-Output written on doc_main.pdf (49 pages, 1339324 bytes).
+Output written on doc_main.pdf (65 pages, 1669516 bytes).
 PDF statistics:
- 262 PDF objects out of 1000 (max. 8388607)
- 173 compressed objects within 2 object streams
+ 319 PDF objects out of 1000 (max. 8388607)
+ 207 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -425,6 +425,9 @@
 		Точку обертання можна переміщувати вздовж треку. Це дає змогу переглянути всю поверхню дороги з усіх боків (враховуючи обертання камери довкола точки огляду). Разом з переміщенням точки обертання, на ідентичну відстань переміщується і точка, з якої якої ведеться спостереження, точка огляду. Це створює приємний ефект переміщення камери.
 		
 		Точка огляду обертається довкола точки обертання використовуючи таку математичну структуру даних як \textbf{кватерніон}; зокрема - властивість множення кватерніонів.
+		
+		\vspace{3em}
+		\includegraphics[scale=0.5]{images/camera2.png}
        
 \newpage \section{Функціональний опис архітектури системи}
 
@@ -436,9 +439,220 @@
 
         \subsubsection{Клас MainActivity}
         
+        	\textbf{Обробник події створення програми}
+        	
+        	При створенні програми викликається подія \textit{onCreate}. Її перехоплює та оброблює відповідний метод класу \textbf{MainActivity}. Під час ініціалізації створюється інтерфейс програми та ініціюється процес отримання даних з GPS-приймача. В цей же момент описуються обробники події отримання даних з GPS-приймача.
+        	
+        	\begin{lstlisting}[language=Java]
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    setContentView(R.layout.activity_main);
+
+    if (savedInstanceState == null) {
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.container, 
+                	new PlaceholderFragment())
+                .commit();
+    }
+
+    initializeLocationService();
+}
+        	\end{lstlisting}
+        	
+        	\textbf{Обробник події отримання гео-даних}
+        	
+        	Ця ділянка мобільного агенту перехоплює подію зміни позиції (або ж отримання оновлених даних про позицію).
+        	
+        	Стиль програмування вимагає максимального розбиття цілісного методу на мінімальні складові з метою подальшої модифікації окремих шматочків системи, а не великого цілого. Тому обробник події зміни позиції просто передає дані про нове положення методу обробки позиції.
+        	
+\begin{lstlisting}[language=Java]
+public void onLocationChanged(Location location) {
+	MainActivity.this.processLocation(location);
+}
+\end{lstlisting}
+
+			Той, в свою чергу, передає керування методу збереження положення \textbf{тоді і лише тоді}, коли нове положення відрізняється від останнього збереженого.
+			
+\begin{lstlisting}[language=Java]
+protected void processLocation(Location location) {
+    if ((this.previousLocation != null && 
+    	location.distanceTo(this.previousLocation) > 
+    		Math.pow(1.0, -3.0)
+    	) || (this.previousLocation == null)
+   	) {
+        this.storeLocation(location);
+    }
+
+    this.previousLocation = location;
+}
+\end{lstlisting}
+
+			Збереження положення поділене на два етапи:
+			
+			\begin{enumerate}
+				\item \textbf{формування двох текстових рядків}, які містять інформацію про положення та висоту над рівнем моря в цій гео-позиції; якщо обидва рядки корректно сформовані - вони додаються до черги на запис у файл
+				\item \textbf{запис даних у файл} - відбувається виштовхування всіх накопичених рядків з черги у файл
+			\end{enumerate}
+			
+\begin{lstlisting}[language=Java]
+protected void storeLocation(Location location) {
+    try {
+        String gprmcLine = this.formatGPRMCLine(location);
+        String pgrmzLine = this.formatPGRMZLine(location);
+
+        this.lines.add(gprmcLine);
+        this.lines.add(pgrmzLine);
+
+        this.addTextMessage(gprmcLine);
+        this.addTextMessage(pgrmzLine);
+
+        this.flushLines();
+    } catch (Exception e) {
+        // ...
+
+        return;
+    }
+}
+\end{lstlisting}
+        	
+        	\textbf{Метод форматування рядків з даними}
+        	
+        	Рядки формуються за допомогою можливостей форматування рядків, дат та чисел Java.
+        	
+\begin{lstlisting}[language=Java]
+protected String formatDegrees(double lat) {
+    long D = Math.round(lat);
+    double m = (lat - D) * 60.0;
+    DecimalFormatSymbols otherSymbols = new 
+    	DecimalFormatSymbols(Locale.UK);
+
+    String res = String.format("%02d%s",
+            D,
+            new DecimalFormat("##.##", otherSymbols).format(m)
+    );
+
+    return res;
+}
+
+protected String formatGPRMCLine(Location location) {
+    String lat = this.formatDegrees(location.getLatitude());
+    String lng = this.formatDegrees(location.getLongitude());
+
+    Calendar cal = Calendar.getInstance();
+    String time = new SimpleDateFormat("HHmmss.00").format(
+    	cal.getTime()
+    );
+    String date = new SimpleDateFormat("ddMMyy").format(
+    	cal.getTime()
+    );
+
+    return String.format(
+            "$GPRMC,%s,A,%s,N,%s,E,,,%s,,,A\r\n",
+            time,
+            lat,
+            lng,
+            date
+    );
+}
+
+protected String formatPGRMZLine(Location location) {
+    // $PGRMZ,93,m,3 - altitude
+    long alt = Math.round(location.getAltitude());
+
+    return String.format(
+            "$PGRMZ,%02d,m,3\r\n",
+            alt
+    );
+}
+\end{lstlisting}
+        	
+        	\textbf{Метод запису даних у файл}
+        	
+        	Для запису у файл створюється об’єкт класу \textit{File} з іменем, що містить поточну дату та час. Якщо такий файл вже існує - дані будуть додані у кінець цього файлу. Файл створюється в кореневому каталозі SD-карти смартфону.
+        	
+        	Після відкриття відповідного файлу, дані з черги записуються у файл, а сама черга - очищається.
+        	
+\begin{lstlisting}[language=Java]
+protected void flushLines() {
+    try {
+        if (this.outputFile == null) {
+            Calendar cal = Calendar.getInstance();
+            String filename = String.format(
+            	"roadribbon_%s.txt",
+                new SimpleDateFormat("ddMMyyyy_hhmmss").
+                	format(cal.getTime())
+            );
+
+            File dir = new File(
+            	Environment.getExternalStorageDirectory(), 
+            	"/RoadRibbon"
+            );
+            dir.mkdirs();
+
+            this.outputFile = new File(dir, filename);
+        }
+
+        FileOutputStream stream = new FileOutputStream(
+        	this.outputFile, true
+        );
+        this.outputWriter = new PrintWriter(stream);
+
+        for (String line : this.lines) {
+            this.outputWriter.print(line);
+        }
+
+        this.outputWriter.close();
+
+        this.lines.clear();
+    } catch (Exception e) {
+        // ...
+
+        return;
+    }
+}
+\end{lstlisting}
+        
      \subsection{Модуль рендерера}
      
      	\subsubsection{Клас Vector2d}
+     	
+     		Даний клас описує вектор на площині та деякі операції над векторами на площині, як, наприклад, \textit{поворот}, \textit{визначення кута між двома векторами}, \textit{визначення вектору}, \textit{перпендикулярного до даного}, \textit{нормалізація вектора}, тощо.
+     	
+        	\textbf{Конструктор класу}
+
+            \begin{lstlisting}[language=C++]
+            Vector2d(_x = 0.0, _y = 0.0);
+            \end{lstlisting}
+
+            По замовчуванню всі координати вектора задані нульовими, тож можливий варіант виклику конструктора:
+
+            \begin{lstlisting}
+            new Vector2d(); 
+            \end{lstlisting}     	
+     	
+	     	\textbf{Визначення вектора-перпендикуляра}
+	     	
+	     	Якщо дано вектор, $\overline{a} (x_1, y_1)$ тоді вектор $\overline{b} (x_2, y_2) \perp \overline{a}$ якщо $\overline{a} \cdot \overline{b} = 0$.
+	     	
+	     	Для того, щоб знайти координати перпендикулярного вектора необхідно розв’язати два рівняння:
+	     	
+	     	$$
+	     		\overline{b}(x_2, y_2) \perp \overline{a}(x_1, y_1) \Rightarrow (x_1 \cdot x_2) + (y_1 \cdot y_2) = 0;
+	     	$$
+	     	
+			Припустимо, що $x_2 = 1$. Тоді:
+	     	
+	     	$$
+	     		x_1 + y_1 \cdot y_2 = 0 \Rightarrow y_2 = -\frac{x_1}{y_1}
+	     	$$
+	     	
+	     	Так само знаходиться й $x_2$:
+	     	
+	     	$$
+	     		y_2 = 1 \Rightarrow x_1 \cdot x_2 + y_1 = 0 \Rightarrow x_2 = -\frac{y_1}{x_1}
+	     	$$
      	
     	\subsubsection{Клас Vector3d}
 
@@ -446,14 +660,14 @@
 
             \textbf{Конструктор класу}
 
-            \begin{lstlisting}[language=Ruby]
-            Vector.new(_x = 0.0, _y = 0.0, _z = 0.0)
+            \begin{lstlisting}[language=C++]
+            Vector3d(_x = 0.0, _y = 0.0, _z = 0.0);
             \end{lstlisting}
 
             По замовчуванню всі координати вектора задані нульовими, тож можливий варіант виклику конструктора:
 
             \begin{lstlisting}
-            Vector.new
+            new Vector3d(); 
             \end{lstlisting}
 
             \textbf{Операції над векторами}
@@ -486,28 +700,380 @@
             \end{displaymath}
 
         \subsubsection{Клас GPSDataParser}
+        
+        \textbf{Короткий опис класу}
+        
+        Даний клас призначений для зчитування та дешифрування даних, отриманих в результаті роботи мобільних агентів під час подолання ними певних маршрутів.
+        
+        Клас дає змогу перетворити файл з даними або у скрипт мовою програмування \textbf{JavaScript}, який можна використати для перегляду пройденого мобільним агентом маршруту на мапі (за допомогою наявної HTML-сторінки в директорії \textbf{test}), або у набір центрових вузлів маршруту.
+        
+        \textbf{Конструктор}
+        
+        В конструкторі об’єкту класу \textbf{GPSDataParser} створюється два регулярних вирази - по одному на кожен з рядків, які "розуміє" рендерер:
+        
+\begin{small}
+\begin{lstlisting}[language=C++]
+void GPSDataParser::init()
+{
+gprmcRe = QRegExp("\\$GPRMC,((\\d\\d)(\\d\\d)(\\d+\\.\\d+)),([A-Z])...");
+
+pgrmzRe = QRegExp("\\$PGRMZ,(\\d+),(m|f),(\\d+)");
+
+centers.clear();
+}
+\end{lstlisting}
+\end{small}
+        
+        \textbf{Конвертація у JS-файл}
+        
+        При конвертації у JavaScript-файл (з метою подальшого використання у HTML-сторінці, на якій відображається мапа з пройденим мобільним агентом маршрутом) створюється файл, котрий задає об’єкту \textbf{window} поле \textbf{waypoints} - масив пар координат, що відповідають конкретному центровому вузлу кістяка маршруту.
+
+\begin{small}        
+\begin{lstlisting}[language=C++]
+void GPSDataParser::toJS(QString filename)
+{
+    if (centers.size() < 1)
+    {
+        return;
+    }
+
+    QFile f(filename);
+
+    f.open(QIODevice::WriteOnly | QIODevice::Text);
+
+    QTextStream out(&f);
+
+    out << "window.waypoints = [\n";
+
+    for (long long i = 0; i < centers.size(); i++)
+    {
+        QString line = QString("[ %1, %2 ]").
+        	arg(centers[i].location.x).
+        	arg(centers[i].location.y);
+
+        out << line;
+
+        if (i < centers.size() - 1)
+        {
+            out << ",";
+        }
+
+        out << "\n";
+    }
+
+    out << "];";
+
+    f.close();
+}
+\end{lstlisting}
+\end{small}
+
+		\textbf{Методи обробки рядку гео-позиції}
+		
+		Методи використовують створені у конструкторі регулярні вирази та зчитані з файлу даних рядки.
+		
+\begin{small}
+\begin{lstlisting}[language=C++]
+double GPSDataParser::str2deg(QString str)
+{
+    QRegExp lat_re("(\\d\\d)(\\d\\d\\.\\d+)"),
+            lng_re("(\\d\\d\\d)(\\d\\d\\.\\d+)");
+
+    double degrees = 0.0, minutes_part = 0.0;
+
+    if (lat_re.indexIn(str) != -1)
+    {
+        degrees = lat_re.cap(1).toDouble();
+        minutes_part = lat_re.cap(2).toDouble();
+
+        return degrees + (minutes_part / 60.0);
+    } else if (lng_re.indexIn(str) != -1)
+    {
+        degrees = lng_re.cap(1).toDouble();
+        minutes_part = lng_re.cap(2).toDouble();
+
+        return degrees + (minutes_part / 60.0);
+    } else
+    {
+        return 0.0;
+    }
+}
+
+void GPSDataParser::processLines(QString gprmcLine, QString pgrmzLine)
+{
+    if (gprmcRe.indexIn(gprmcLine) < 0)
+    {
+        return;
+    }
+
+    if (pgrmzRe.indexIn(pgrmzLine) < 0)
+    {
+        return;
+    }
+
+    Vector2d location = processGPRMCLine(gprmcLine);
+    double alt = processPGRMZLine(pgrmzLine) * ALTITUDE_MAGNIFIER;
+    Vector3d position = Vector3d(location.x, alt, location.y);
+
+    // TODO: refactor
+    SkeletonCenter center(location, position, Vector3d(0, 0, 0));
+
+    centers.push_back(center);
+}
+
+Vector2d GPSDataParser::processGPRMCLine(QString line)
+{
+    gprmcRe.indexIn(line);
+
+    double lat = str2deg(gprmcRe.cap(6)),
+           lng = str2deg(gprmcRe.cap(10));
+
+    return Vector2d(lat, lng);
+}
+
+double GPSDataParser::processPGRMZLine(QString line)
+{
+    pgrmzRe.indexIn(line);
+
+    return pgrmzRe.cap(1).toDouble();
+}
+\end{lstlisting}
+\end{small}
 
         \subsubsection{Клас PlainRoadBuilder}
         
-        \subsubsection{Клас BoundingBox}
+        \textbf{Которкий опис класу}
+        
+        Даний клас використовується для приведення послідовності центрових вузлів кістяка маршруту до вигляду, зручного для використання бібліотекою OpenGL.
+        
+        \textbf{Конструктор класу}
+        
+        В конструкторі послідовність центральних вузлів фільтрується з метою прибрати ідентичні центри, а також кожному центру задається позиція в координатах простору.
+        
+\begin{small}
+\begin{lstlisting}[language=C++]
+PlainRoadBuilder::PlainRoadBuilder(QVector<SkeletonCenter> _centers, 
+	float roadWidth
+)
+{
+    if (_centers.size() < 3)
+    {
+        return;
+    }
+
+    Vector2d origin = this->latlng2xy(_centers[0].location);
+
+    for (int i = 1; i < _centers.size(); i++)
+    {
+        while ((i < _centers.size() - 1) && 
+        	(_centers[i + 1].location == _centers[i].location)
+        ) i++;
+
+        SkeletonCenter center = _centers[i];
+
+        Vector2d xy = this->latlng2xy(centers[i].location, 
+        	origin
+        );
+
+        center.position = Vector3d(xy.x, 
+        	centers[i].position.y * (ZOOM * 4), 
+        	xy.y
+       	);
+
+        this->centers.push_back(center);
+    }
+
+    this->roadWidth = roadWidth;
+}
+\end{lstlisting}
+\end{small}
+        
+        \textbf{Перетворення широти та довготи в координати у просторі}
+        
+        \textbf{Побудова вершинних даних}
+        
+        Для побудови вершинних даних використовуються дані про ребро, що асоційоване з попереднім до поточного оброблюваного центрового вузла дороги.
+        
+\begin{small}
+\begin{lstlisting}[language=C++]
+void PlainRoadBuilder::buildPolygonSet(
+	QVector<Vector3d>* vertices, QVector<int>* indices
+)
+{
+    for (int i = 1; i < this->centers.size() - 1; i++)
+    {
+        Vector2d A = this->centers[i - 1].planePos(),
+                B = this->centers[i].planePos(),
+                C = this->centers[i + 1].planePos(),
+                BA = A - B;
+
+        double angle = 0; // M_PI / 16.0;
+
+        if (fabs((C - B).angleTo(A - B) - M_PI) < pow(10.0, -5.0))
+        {
+            angle = 0;
+        }
+
+        Vector2d a = BA.perpendicular().
+        			normalize().
+        			rotate(angle) * this->roadWidth,
+                AL = A + a,
+                AR = A - a;
+
+        Vector3d AL3D = 
+        	Vector3d(AL.x, this->centers[i].position.y, AL.y),
+                AR3D = 
+            Vector3d(AR.x, this->centers[i].position.y, AR.y);
+
+        int index = vertices->size();
+
+        if (i == 1)
+        {
+            vertices->push_back(AL3D);
+            vertices->push_back(AR3D);
+        } else
+        {
+            vertices->push_back(AR3D);
+            vertices->push_back(AL3D);
+            vertices->push_back(AL3D);
+            vertices->push_back(AR3D);
+
+            indices->push_back(index - 2);
+            indices->push_back(index - 1);
+            indices->push_back(index + 0);
+            indices->push_back(index + 1);
+        }
+    }
+
+    {
+        Vector2d A = this->centers[this->centers.size() - 1].
+        	planePos(),
+                B = this->centers[this->centers.size() - 2].
+            planePos(),
+                BA = A - B,
+                a = BA.perpendicular().
+                	normalize().
+                	rotate(M_PI / 16.0) * this->roadWidth,
+                AL = A + a,
+                AR = A - a;
+
+        Vector3d AL3D = 
+        	Vector3d(AL.x, 
+        		this->centers[this->centers.size() - 1].
+	        		position.y, 
+        		AL.y
+        	);
+        		
+        Vector3d AR3D = 
+            Vector3d(AR.x, 
+            	this->centers[this->centers.size() - 1].
+            		position.y, 
+            	AR.y
+            );
+
+        vertices->push_back(AL3D);
+        vertices->push_back(AR3D);
+    }
+}
+\end{lstlisting}
+\end{small}
 
         \subsubsection{Клас Camera}
         
+        \textbf{Короткий опис класу}
+        
+        Даний клас застосовується для перетворень матриці \textit{GL\_MODELVIEW}.
+        
+        \textbf{Конструктор}
+        
+        У конструкторі задаються значення "по замовчуванню" для вектору напрямку догори та для вектору напрямку ліворуч від камери.
+        
+\begin{small}
+\begin{lstlisting}[language=C++]
+Camera::Camera(Vector3d _position, Vector3d _lookAt)
+{
+    this->position = _position;
+    this->lookAt = _lookAt;
+    this->up = Vector3d(0, 1, 0);
+    this->left = Vector3d(1, 0, 0);
+}
+\end{lstlisting}
+\end{small}
+        
+        \textbf{Переміщення камери}
+        
+        Операція переміщення здійснює зміщення вектору \textbf{eyePos} та \textbf{lookAt} на однакову величину (на однаковий вектор).
+        
+\begin{small}
+\begin{lstlisting}[language=C++]
+void Camera::move(Vector3d translate)
+{
+    Vector3d v1 = this->position;
+    v1.y = this->lookAt.y;
+
+    Vector3d tz = (this->lookAt - v1).normalize() * -translate.z;
+    Vector3d ty = Vector3d(0, 1, 0) * translate.y;
+
+    Vector3d delta = tz + ty;
+
+    this->position += delta;
+    this->lookAt += delta;
+}
+\end{lstlisting}
+\end{small}
+        
+        \textbf{Обертання камери}
+        
+        Камера обертається довкола точки \textbf{lookAt}. Для цього, виконується два повороти:
+	
+		\begin{enumerate}
+			\item \textbf{горизонтальний поворот} - поворот довкола осі $OY$
+			\item \textbf{вертикальний поворот} - поворот довкола осі $OX$
+		\end{enumerate}
+        
+        Для горизонтального повороту, вектор $\overline{lookAt - eyePos}$ за допомогою властивостей операції множенняя кватерніонів (у розгорнутому вигляді) повертається на кут $\alpha_y$ довкола вектора \textbf{up}. Потім вектор \textbf{left} повертається довкола вектора \textbf{up} на такий самий кут.
+        
+        Для вертикального повороту, спершу вектор \textbf{up} повертається довкола вектора \textbf{left} на заданий кут, після чого вектор $\overline{lookAt - eyePos}$ повертається на такий самий кут довкола вектора \textbf{left}. 
+        
+\begin{small}
+\begin{lstlisting}[language=C++]
+void Camera::rotate(Vector3d angles)
+{
+    this->position = (this->position - this->lookAt).
+    	rotate(this->up, angles.y) + this->lookAt;
+    this->left = this->left.rotate(this->up, angles.y);
+
+    this->position = (this->position - this->lookAt).
+    	rotate(this->left, angles.x) + this->lookAt;
+}
+\end{lstlisting}
+\end{small}
+        
     \newpage \section{Застосування системи в реальному житті}
 
-	\subsection{Апробація в межах однієї вулиці}
+	\subsection{Апробація в межах короткого маршруту}
 	
-	\subsection{Апробація у межах одного маршруту}
+	В межах короткого маршруту в м. Києві, показаного на мапі, система проявила себе доволі непогано. Як і передбачалось, в підземних переходах та у місцях, густо заставлених будівлями, сигнал від супутників приходить спотворений та/або із затримками, чим і спричинені візуальні артефакти на тривимірній поверхні пройденого шляху.
+	
+	При швидкому переміщенні у міському автобусі похибки були значно меншими внаслідок меншої густоти об’єктів вздовж дороги та більш плавному пересуванню транспортного засобу та смартфону всередині нього.
+	
+	Розмір файлу з даними мобільного агента за \textbf{15 хв} роботи програми не перевищив \textbf{40 кБ}.
+	
+	\vspace{2em}
+	\includegraphics[scale=0.35]{images/results1.png}
+	
+	\vspace{2em}
+	\includegraphics[scale=0.5]{images/results2.png}
 
   \newpage
   \section*{Висновки}
   \addcontentsline{toc}{section}{Висновки}
 
-    Під час виконання роботи було проаналізовано існуючі системи створення текстурних розгорток (що, власне, і сподвигло на створення даної роботи). Було розглянуто деякі алгоритми параметризації поверхонь та загальний процес параметризації.
+    Під час виконання роботи було проаналізовано існуючі системи та формати відстеження гео-позиції на планеті та висоти над рівнем моря у цій позиції за допомогою супутників мережі GPS.
 
-    В рамках роботи було створено ряд методів та алгоритмів, котрі дозволяють з певною точністю та продуктивністю побудувати текстурну розгортку тривимірних об’єктів на площині. Побудований приклад реалізації розробленого алгоритму показує сильні сторони мови програмування Ruby та можливості  динамічних мов програмування для створення прикладних програм. Програмний код відповідає сучасним вимогам кодування та простий для розуміння.
+    В рамках роботи було створено систему для відслідковування зміни гео-положення та запису пройденого маршруту у файл на смартфоні та систему візуалізації отриманих даних у вигляді тривимірної поверхні пройденого треку. Розроблені модулі показують сильні сторони мов програмування Java та C++, можливості платформ розробки Qt та Android, демонструють функціональну широту бібліотек SFML та OpenGL. Програмний код відповідає сучасним вимогам кодування та простий для розуміння.
 
-    Розроблені алгоритми та методи відкривають нові площини для досліджень. Показані ідеї можуть бути втілені і в інших розробках в галузі текстурних розгорток, параметризації поверхонь, тривимірної графіки та комп’ютерного графічного моделювання.
+    Розроблена система відкриває нові площини для досліджень. Показані ідеї можуть та будуть втілені в інших розробках в галузі гео-кодування та автомобільно-дорожніх системах, системах навігації та гео-інформаційних системах.
 
     \newpage
     \begin{appendices}
