@@ -26,6 +26,12 @@
 \BibEmph{Community~W.} Gps-receiver. \BibDash
 \newblock URL: \BibUrl{http://en.wikipedia.org/wiki/GPS-receiver}.
 
+\bibitem{website:gis}
+\selectlanguageifdefined{english}
+\BibEmph{Community~W.} Gis. \BibDash
+\newblock URL:
+  \BibUrl{http://en.wikipedia.org/wiki/Geographic_information_system}.
+
 \bibitem{website:nmea_0183}
 \selectlanguageifdefined{english}
 \BibEmph{Community~W.} Nmea-0183. \BibDash

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.1.19)  22 JAN 2014 18:20
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.1.19)  23 JAN 2014 02:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -884,20 +884,20 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
  (./doc_main.aux)
 \openout1 = `doc_main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -939,7 +939,7 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 33.
+(lastpage)             ! on input line 34.
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count147
@@ -973,19 +973,19 @@ e
 ))
 
 LaTeX Font Warning: Font shape `T2A/cmr/m/n' in size <20> not available
-(Font)              size <20.74> substituted on input line 33.
+(Font)              size <20.74> substituted on input line 34.
 
 
 LaTeX Font Warning: Font shape `T2A/cmr/m/sl' in size <20> not available
-(Font)              size <20.74> substituted on input line 33.
+(Font)              size <20.74> substituted on input line 34.
 
 
 LaTeX Font Warning: Font shape `T2A/cmr/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 33.
+(Font)              size <17.28> substituted on input line 34.
 
 
 LaTeX Font Warning: Font shape `T2A/cmr/m/sl' in size <16> not available
-(Font)              size <17.28> substituted on input line 33.
+(Font)              size <17.28> substituted on input line 34.
 
 ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
@@ -997,13 +997,13 @@ Package caption Info: End \AtBeginDocument code.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (18.42381pt too wide) in paragraph at lines 99--100
+Overfull \hbox (18.42381pt too wide) in paragraph at lines 100--101
 []\T2A/cmr/m/n/12 Було до-слi-дже-но рi-знi про-то-ко-ли збе-рi-га-н-ня да-них,
  зi-бра-них з GPS-приймачiв
  []
 
 
-Overfull \hbox (14.03694pt too wide) in paragraph at lines 115--116
+Overfull \hbox (14.03694pt too wide) in paragraph at lines 116--117
 []\T2A/cmr/m/n/12 Different geo-data storage protocols and geo-data graphic rep
 resentati-on methods
  []
@@ -1022,148 +1022,227 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout3 = `doc_main.toc'.
 
  [3]
-Overfull \hbox (7.21233pt too wide) in paragraph at lines 136--137
+Overfull \hbox (7.21233pt too wide) in paragraph at lines 138--139
 []\T2A/cmr/m/n/14.4 Немало чим успiх OSM зав-дя-чу№ i роз-ви-тку опе-ра-цiй-ноЁ
  си-сте-ми Android
  []
 
-[4] [5] [6] [7]
-Overfull \hbox (26.89119pt too wide) in paragraph at lines 205--206
+[4
+
+] [5] [6] [7
+
+] [8
+
+] <images/osm.png, id=42, 1371.1225pt x 735.74875pt>
+File: images/osm.png Graphic file (type png)
+
+<use images/osm.png>
+Package pdftex.def Info: images/osm.png used on input line 218.
+(pdftex.def)             Requested size: 479.90007pt x 257.51591pt.
+ <images/google_earth.png, id=44, 967.615pt x 669.50125pt>
+File: images/google_earth.png Graphic file (type png)
+
+<use images/google_earth.png>
+Package pdftex.def Info: images/google_earth.png used on input line 221.
+(pdftex.def)             Requested size: 435.42273pt x 301.27278pt.
+ [9] [10 <./images/osm.png> <./images/google_earth.png>] [11]
+Overfull \hbox (26.89119pt too wide) in paragraph at lines 305--306
 []\T2A/cmr/m/n/14.4 В да-нiй ро-бо-тi бу-ло ви-ко-ри-ста-но два ти-пи ряд-кiв -
  \T2A/cmr/bx/n/14.4 GPRMC \T2A/cmr/m/n/14.4 (Recommended
  []
 
 
-Overfull \hbox (13.75711pt too wide) in paragraph at lines 205--206
+Overfull \hbox (13.75711pt too wide) in paragraph at lines 305--306
 \T2A/cmr/m/n/14.4 Mi-ni-mum sentence C), да-нi про по-то-чне гео-розташування п
 ри-йма-ча та \T2A/cmr/bx/n/14.4 PGRMZ
  []
 
-[8] <images/leaflet_renderer.png, id=42, 1210.5225pt x 606.265pt>
+[12] <images/errors1.png, id=60, 1213.53375pt x 614.295pt>
+File: images/errors1.png Graphic file (type png)
+
+<use images/errors1.png>
+Package pdftex.def Info: images/errors1.png used on input line 321.
+(pdftex.def)             Requested size: 424.74318pt x 215.00647pt.
+ <images/errors2.png, id=61, 805.0075pt x 629.35126pt>
+File: images/errors2.png Graphic file (type png)
+
+<use images/errors2.png>
+Package pdftex.def Info: images/errors2.png used on input line 327.
+(pdftex.def)             Requested size: 402.50278pt x 314.67485pt.
+ [13] [14 <./images/errors1.png> <./images/errors2.png>] [15] <images/leaflet_r
+enderer.png, id=75, 1210.5225pt x 606.265pt>
 File: images/leaflet_renderer.png Graphic file (type png)
 
 <use images/leaflet_renderer.png>
-Package pdftex.def Info: images/leaflet_renderer.png used on input line 219.
+Package pdftex.def Info: images/leaflet_renderer.png used on input line 357.
 (pdftex.def)             Requested size: 411.5722pt x 206.12737pt.
- [9 <./images/leaflet_renderer.png>]
-<images/road2d_1.png, id=46, 1028.34187pt x 578.16pt>
-File: images/road2d_1.png Graphic file (type png)
-
-<use images/road2d_1.png>
-Package pdftex.def Info: images/road2d_1.png used on input line 237.
-(pdftex.def)             Requested size: 349.6316pt x 196.5718pt.
-
-<images/road2d_2.png, id=47, 1028.34187pt x 578.16pt>
+ [16 <./images/leaflet_renderer.png>]
+<images/road2d_2.png, id=79, 1028.34187pt x 578.16pt>
 File: images/road2d_2.png Graphic file (type png)
 
 <use images/road2d_2.png>
-Package pdftex.def Info: images/road2d_2.png used on input line 241.
+Package pdftex.def Info: images/road2d_2.png used on input line 375.
 (pdftex.def)             Requested size: 349.6316pt x 196.5718pt.
- [10 <./images/road2d_1.png>] [11 <./images/road2d_2.png>] <images/camera1.png,
- id=54, 805.0075pt x 629.35126pt>
+ [17 <./images/road2d_2.png>]
+<images/camera1.png, id=83, 805.0075pt x 629.35126pt>
 File: images/camera1.png Graphic file (type png)
-
-<use images/camera1.png>
-Package pdftex.def Info: images/camera1.png used on input line 267.
+ <use images/camera1.png>
+Package pdftex.def Info: images/camera1.png used on input line 404.
 (pdftex.def)             Requested size: 402.50278pt x 314.67485pt.
- [12 <./images/camera1.png>] [13] [14]
-<images/general_workflow.png, id=65, 842.14626pt x 622.325pt>
+
+[18] [19 <./images/camera1.png>] [20
+
+]
+<images/qt_creator.png, id=94, 1371.1225pt x 739.76375pt>
+File: images/qt_creator.png Graphic file (type png)
+
+<use images/qt_creator.png>
+Package pdftex.def Info: images/qt_creator.png used on input line 437.
+(pdftex.def)             Requested size: 479.90007pt x 258.92119pt.
+
+Overfull \hbox (1.75719pt too wide) in paragraph at lines 441--442
+\T2A/cmr/m/n/14.4 роз-роб-ки Androi-dStudio. Це се-ре-до-ви-ще № мо-ди-фi-ка-цi
+-№ю IntelliJ Idea Communi-
+ []
+
+[21 <./images/qt_creator.png>]
+<images/android_studio.png, id=99, 1371.1225pt x 739.76375pt>
+File: images/android_studio.png Graphic file (type png)
+
+<use images/android_studio.png>
+Package pdftex.def Info: images/android_studio.png used on input line 451.
+(pdftex.def)             Requested size: 479.90007pt x 258.92119pt.
+ [22 <./images/android_studio.png>]
+<images/general_workflow.png, id=104, 842.14626pt x 622.325pt>
 File: images/general_workflow.png Graphic file (type png)
 
 <use images/general_workflow.png>
-Package pdftex.def Info: images/general_workflow.png used on input line 322.
+Package pdftex.def Info: images/general_workflow.png used on input line 484.
 (pdftex.def)             Requested size: 421.0721pt x 311.16173pt.
- [15 <./images/general_workflow.png>]
-<images/mobile_agent_workflow.png, id=71, 411.5375pt x 466.74374pt>
+ [23]
+<images/mobile_agent_workflow.png, id=108, 411.5375pt x 466.74374pt>
 File: images/mobile_agent_workflow.png Graphic file (type png)
 
 <use images/mobile_agent_workflow.png>
-Package pdftex.def Info: images/mobile_agent_workflow.png used on input line 33
-5.
+Package pdftex.def Info: images/mobile_agent_workflow.png used on input line 50
+0.
 (pdftex.def)             Requested size: 205.76825pt x 233.37129pt.
 
-Overfull \hbox (1.53618pt too wide) in paragraph at lines 349--350
+<images/mobile_screen.png, id=109, 296.10625pt x 525.965pt>
+File: images/mobile_screen.png Graphic file (type png)
+
+<use images/mobile_screen.png>
+Package pdftex.def Info: images/mobile_screen.png used on input line 506.
+(pdftex.def)             Requested size: 222.07913pt x 394.47276pt.
+ [24 <./images/general_workflow.png>] [25 <./images/mobile_agent_workflow.png> 
+<./images/mobile_screen.png>]
+Overfull \hbox (1.53618pt too wide) in paragraph at lines 522--523
 [][][][][][][][][][][][] 
  []
 
-[16 <./images/mobile_agent_workflow.png>]
-<images/mobile_agent_classes.png, id=76, 351.3125pt x 441.65pt>
+<images/mobile_agent_classes.png, id=119, 351.3125pt x 441.65pt>
 File: images/mobile_agent_classes.png Graphic file (type png)
 
 <use images/mobile_agent_classes.png>
-Package pdftex.def Info: images/mobile_agent_classes.png used on input line 362
+Package pdftex.def Info: images/mobile_agent_classes.png used on input line 536
 .
 (pdftex.def)             Requested size: 263.48372pt x 331.23668pt.
- [17 <./images/mobile_agent_classes.png>]
-<images/renderer_workflow.png, id=85, 361.35pt x 526.96875pt>
+
+<images/renderer_workflow.png, id=120, 361.35pt x 526.96875pt>
 File: images/renderer_workflow.png Graphic file (type png)
 
 <use images/renderer_workflow.png>
-Package pdftex.def Info: images/renderer_workflow.png used on input line 371.
+Package pdftex.def Info: images/renderer_workflow.png used on input line 548.
 (pdftex.def)             Requested size: 180.67456pt x 263.48372pt.
- [18 <./images/renderer_workflow.png>]
-<images/renderer_classes.png, id=91, 1218.5525pt x 711.65875pt>
+ [26] [27 <./images/mobile_agent_classes.png> <./images/renderer_workflow.png>]
+
+<images/renderer_classes.png, id=131, 1218.5525pt x 711.65875pt>
 File: images/renderer_classes.png Graphic file (type png)
 
 <use images/renderer_classes.png>
-Package pdftex.def Info: images/renderer_classes.png used on input line 375.
+Package pdftex.def Info: images/renderer_classes.png used on input line 555.
 (pdftex.def)             Requested size: 609.27477pt x 355.8285pt.
- [19
+ [28 <./images/renderer_classes.png>] [29
 
- <./images/renderer_classes.png>] [20
 
 ]
-<images/perpendicular_1_1.png, id=99, 1162.5834pt x 593.8185pt>
+<images/perpendicular_2_1.png, id=139, 1372.12625pt x 1121.18875pt>
+File: images/perpendicular_2_1.png Graphic file (type png)
+
+<use images/perpendicular_2_1.png>
+Package pdftex.def Info: images/perpendicular_2_1.png used on input line 585.
+(pdftex.def)             Requested size: 411.64105pt x 336.35922pt.
+
+! Undefined control sequence.
+l.589 ...ЅСЋСЋС‚СЊСЃСЏ РѕРґРЅС–С”СЋ ($J, K \Rarrow
+                                                   O$).
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[30 <./images/perpendicular_2_1.png>]
+<images/road2d_1.png, id=145, 1028.34187pt x 578.16pt>
+File: images/road2d_1.png Graphic file (type png)
+
+<use images/road2d_1.png>
+Package pdftex.def Info: images/road2d_1.png used on input line 603.
+(pdftex.def)             Requested size: 462.74957pt x 260.16959pt.
+
+<images/perpendicular_1_1.png, id=146, 1162.5834pt x 593.8185pt>
 File: images/perpendicular_1_1.png Graphic file (type png)
 
 <use images/perpendicular_1_1.png>
-Package pdftex.def Info: images/perpendicular_1_1.png used on input line 404.
+Package pdftex.def Info: images/perpendicular_1_1.png used on input line 615.
 (pdftex.def)             Requested size: 755.67027pt x 385.97745pt.
 
-Overfull \hbox (314.65253pt too wide) in paragraph at lines 404--405
-[][] 
+Overfull \hbox (271.9734pt too wide) in paragraph at lines 615--616
+ [][] 
  []
 
-[21] [22 <./images/perpendicular_1_1.png>]
-<images/camera2.png, id=109, 805.0075pt x 629.35126pt>
+[31 <./images/road2d_1.png>] [32 <./images/perpendicular_1_1.png>] [33]
+<images/camera2.png, id=158, 805.0075pt x 629.35126pt>
 File: images/camera2.png Graphic file (type png)
 
 <use images/camera2.png>
-Package pdftex.def Info: images/camera2.png used on input line 430.
+Package pdftex.def Info: images/camera2.png used on input line 644.
 (pdftex.def)             Requested size: 402.50278pt x 314.67485pt.
- [23] [24 <./images/camera2.png>]
+ [34 <./images/camera2.png>]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
-) [25] [26]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 527.
+) [35
+
+] [36]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 743.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <14.4> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 527.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 743.
 
-Overfull \hbox (26.20905pt too wide) in paragraph at lines 533--534
+Overfull \hbox (26.20905pt too wide) in paragraph at lines 749--750
 [][][][][][][][][][][][][][][][][][] 
  []
 
-[27]
-Overfull \hbox (9.76047pt too wide) in paragraph at lines 540--541
+[37]
+Overfull \hbox (9.76047pt too wide) in paragraph at lines 756--757
 [][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (17.98476pt too wide) in paragraph at lines 541--543
+Overfull \hbox (17.98476pt too wide) in paragraph at lines 757--759
 [][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (1.53618pt too wide) in paragraph at lines 544--545
+Overfull \hbox (1.53618pt too wide) in paragraph at lines 760--761
 [][][][][][][][][][][][][][][][][][][][] 
  []
 
-[28] [29] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+[38] [39] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -1171,102 +1250,44 @@ File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2013/07/10 1.5 (Carsten Heinz)
-) [30] [31]
-Overfull \hbox (30.83194pt too wide) in paragraph at lines 718--720
+) [40]
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 900.
+ [41]
+[42]
+Overfull \hbox (30.83194pt too wide) in paragraph at lines 981--983
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[32] [33]
-Overfull \hbox (9.68692pt too wide) in paragraph at lines 802--803
+[43] [44]
+Overfull \hbox (9.68692pt too wide) in paragraph at lines 1065--1066
 [][][][][][][][][][][][][][][][][] 
  []
 
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 815.
-[34] [35] [36] [37]
-Overfull \hbox (8.52692pt too wide) in paragraph at lines 985--986
+[45] [46] [47] [48]
+Overfull \hbox (8.52692pt too wide) in paragraph at lines 1248--1249
 []\T2A/cmr/m/n/14.4 Даний клас за-сто-со-ву-№-ться для пе-ре-тво-рень ма-три-цi
  \T2A/cmr/m/it/14.4 GL_MODELVIEW\T2A/cmr/m/n/14.4 . 
  []
 
-[38] [39] [40] <images/results1.png, id=170, 1216.545pt x 613.29124pt>
+[49] [50] [51] <images/results1.png, id=220, 1216.545pt x 613.29124pt>
 File: images/results1.png Graphic file (type png)
 
 <use images/results1.png>
-Package pdftex.def Info: images/results1.png used on input line 1063.
+Package pdftex.def Info: images/results1.png used on input line 1361.
 (pdftex.def)             Requested size: 425.79713pt x 214.65514pt.
 
-<images/results2.png, id=171, 805.0075pt x 629.35126pt>
+<images/results2.png, id=221, 805.0075pt x 629.35126pt>
 File: images/results2.png Graphic file (type png)
 
 <use images/results2.png>
-Package pdftex.def Info: images/results2.png used on input line 1066.
+Package pdftex.def Info: images/results2.png used on input line 1363.
 (pdftex.def)             Requested size: 402.50278pt x 314.67485pt.
- [41 <./images/results1.png>] [42 <./images/results2.png>] [43]
-Overfull \hbox (4.9879pt too wide) in paragraph at lines 1087--1088
-\T2A/cmr/m/n/14.4 з цих пи-тань (ди-ре-кти-ви Ра-ди ™в-ро-пей-сько-го со-ю-зу 9
-0/270/™ЕС, 89/391/™ЕС,
- []
+ [52
 
+] [53 <./images/results1.png> <./images/results2.png>] [54
 
-Overfull \hbox (6.67526pt too wide) in paragraph at lines 1094--1095
-[]\T2A/cmr/m/n/14.4 робочi мi-сця пi-ло-тiв, чи водiЁв-операторiв транс-порт-ни
-х за-со-бiв, обла-
- []
-
-[44]
-Overfull \hbox (0.60307pt too wide) in paragraph at lines 1112--1113
-[]\T2A/cmr/m/n/14.4 належнi умо-ви освi-тле-н-ня при-мi-ще-н-ня i мi-сця ро-бi-
-тни-ка, вiд-су-тнiсть
- []
-
-[45]
-Overfull \hbox (1.93176pt too wide) in paragraph at lines 1128--1129
-\T2A/cmr/m/n/14.4 нормативно-технiчноЁ й екс-плу-а-та-цiй-ноЁ до-ку-мен-та-цiЁ 
-заводу-виробника ЕОМ,
- []
-
-[46] [47] [48]
-Overfull \hbox (7.11337pt too wide) in paragraph at lines 1197--1198
-[]\T2A/cmr/m/n/14.4 Рiвнi уль-тра-фi-о-ле-то-во-го ви-про-мi-ню-ва-н-ня не по-в
-ин-нi пе-ре-ви-щу-ва-ти при-
- []
-
-[49]
-Underfull \hbox (badness 10000) in paragraph at lines 1209--1212
-\T2A/cmr/m/n/14.4 ре-жи-мiв.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1209--1212
-
- []
-
-
-Overfull \hbox (8.45828pt too wide) in paragraph at lines 1215--1216
-[]\T2A/cmr/m/n/14.4 Лiнiя еле-ктро-ме-ре-жi для жив-ле-н-ня ЕОМ, пе-ри-фе-рiй-н
-их при-стро-Ёв ЕОМ
- []
-
-[50]
-Overfull \hbox (2.73978pt too wide) in paragraph at lines 1231--1232
-[]\T2A/cmr/m/n/14.4 Неприпустиме пiд-клю-че-н-ня ЕОМ, пе-ри-фе-рiй-них при-стро
--Ёв ЕОМ i уста-
- []
-
-[51] [52]
-Overfull \hbox (0.45589pt too wide) in paragraph at lines 1268--1269
-[]\T2A/cmr/m/n/14.4 Недопустимо ви-ко-ри-ста-н-ня клем фун-кцiо-наль-но-го за-з
-ем-ле-н-ня для пiд-
- []
-
-[53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63]
-Overfull \hbox (6.1538pt too wide) in paragraph at lines 1484--1485
-[]\T2A/cmr/m/n/14.4 За без-пе-ку екс-плу-а-та-цiЁ, об-слу-го-ву-ва-н-ня, ре-мон
--ту i на-ла-го-дже-н-ня ЕОМ,
- []
-
-[64] (./doc_main.bbl
+] (./doc_main.bbl
 ! Missing $ inserted.
 <inserted text> 
                 $
@@ -1305,22 +1326,69 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.33 ...ia.org/wiki/Geographic_information_system}
+                                                  .
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Extra }, or forgotten $.
+\url #1->{\small #1}
+                    
+l.33 ...ia.org/wiki/Geographic_information_system}
+                                                  .
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.34 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.34 
+     
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (22.0639pt too wide) in paragraph at lines 31--34
+[]\T2A/cmr/m/n/14.4 Community W. Gis. ^^V  URL: \T2A/cmr/m/n/12 http://en.wikip
+edia.org/wiki/Geographic$[]\OML/cmm/m/it/12 nformation[]ystem:[]$ 
+ []
+
 ) 
 AED: lastpage setting LastPage
-[65] (./doc_main.aux)
+[55] (./doc_main.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 9002 strings out of 493307
- 129499 string characters out of 6139905
- 220996 words of memory out of 5000000
- 12187 multiletter control sequences out of 15000+600000
- 25029 words of font info for 60 fonts, out of 8000000 for 9000
+ 9074 strings out of 493307
+ 130868 string characters out of 6139905
+ 221473 words of memory out of 5000000
+ 12253 multiletter control sequences out of 15000+600000
+ 23400 words of font info for 58 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 50i,11n,60p,1761b,1715s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 50i,11n,60p,1431b,1715s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t2a.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
@@ -1333,16 +1401,16 @@ bols/msam10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbi1440.pfb></us
 r/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/
 type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-supe
 r/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb></usr
-/share/texmf/fonts/type1/public/cm-super/sfbx2986.pfb></usr/share/texmf/fonts/t
-ype1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super
-/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/
-share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/ty
-pe1/public/cm-super/sfsl1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/
-sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1440.pfb>
-Output written on doc_main.pdf (66 pages, 1678727 bytes).
+/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/t
+ype1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super
+/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/
+share/texmf/fonts/type1/public/cm-super/sfsl1000.pfb></usr/share/texmf/fonts/ty
+pe1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/
+sfti1440.pfb>
+Output written on doc_main.pdf (56 pages, 3312936 bytes).
 PDF statistics:
- 326 PDF objects out of 1000 (max. 8388607)
- 212 compressed objects within 3 object streams
+ 304 PDF objects out of 1000 (max. 8388607)
+ 188 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
