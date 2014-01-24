@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.1.19)  24 JAN 2014 01:57
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.1.19)  24 JAN 2014 12:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1029,7 +1029,13 @@ Overfull \hbox (7.21233pt too wide) in paragraph at lines 138--139
 
 [4
 
-] [5] [6] [7
+]
+Overfull \hbox (4.99716pt too wide) in paragraph at lines 164--165
+[]\T2A/cmr/m/n/14.4 Розробити ал-го-ритм по-бу-до-ви три-ви-мiр-ноЁ по-верх-нi 
+прой-де-но-го шля-
+ []
+
+[5] [6] [7
 
 ] [8
 
@@ -1037,22 +1043,22 @@ Overfull \hbox (7.21233pt too wide) in paragraph at lines 138--139
 File: images/osm.png Graphic file (type png)
 
 <use images/osm.png>
-Package pdftex.def Info: images/osm.png used on input line 218.
+Package pdftex.def Info: images/osm.png used on input line 219.
 (pdftex.def)             Requested size: 479.90007pt x 257.51591pt.
  <images/google_earth.png, id=44, 967.615pt x 669.50125pt>
 File: images/google_earth.png Graphic file (type png)
 
 <use images/google_earth.png>
-Package pdftex.def Info: images/google_earth.png used on input line 221.
+Package pdftex.def Info: images/google_earth.png used on input line 222.
 (pdftex.def)             Requested size: 435.42273pt x 301.27278pt.
  [9] [10 <./images/osm.png> <./images/google_earth.png>] [11]
-Overfull \hbox (26.89119pt too wide) in paragraph at lines 305--306
+Overfull \hbox (26.89119pt too wide) in paragraph at lines 306--307
 []\T2A/cmr/m/n/14.4 В да-нiй ро-бо-тi бу-ло ви-ко-ри-ста-но два ти-пи ряд-кiв -
  \T2A/cmr/bx/n/14.4 GPRMC \T2A/cmr/m/n/14.4 (Recommended
  []
 
 
-Overfull \hbox (13.75711pt too wide) in paragraph at lines 305--306
+Overfull \hbox (13.75711pt too wide) in paragraph at lines 306--307
 \T2A/cmr/m/n/14.4 Mi-ni-mum sentence C), да-нi про по-то-чне гео-розташування п
 ри-йма-ча та \T2A/cmr/bx/n/14.4 PGRMZ
  []
@@ -1061,33 +1067,33 @@ Overfull \hbox (13.75711pt too wide) in paragraph at lines 305--306
 File: images/errors1.png Graphic file (type png)
 
 <use images/errors1.png>
-Package pdftex.def Info: images/errors1.png used on input line 321.
+Package pdftex.def Info: images/errors1.png used on input line 322.
 (pdftex.def)             Requested size: 424.74318pt x 215.00647pt.
  <images/errors2.png, id=61, 805.0075pt x 629.35126pt>
 File: images/errors2.png Graphic file (type png)
 
 <use images/errors2.png>
-Package pdftex.def Info: images/errors2.png used on input line 327.
+Package pdftex.def Info: images/errors2.png used on input line 328.
 (pdftex.def)             Requested size: 402.50278pt x 314.67485pt.
  [13] [14 <./images/errors1.png> <./images/errors2.png>] [15] <images/leaflet_r
 enderer.png, id=75, 1210.5225pt x 606.265pt>
 File: images/leaflet_renderer.png Graphic file (type png)
 
 <use images/leaflet_renderer.png>
-Package pdftex.def Info: images/leaflet_renderer.png used on input line 357.
+Package pdftex.def Info: images/leaflet_renderer.png used on input line 358.
 (pdftex.def)             Requested size: 411.5722pt x 206.12737pt.
  [16 <./images/leaflet_renderer.png>]
 <images/road2d_2.png, id=79, 1028.34187pt x 578.16pt>
 File: images/road2d_2.png Graphic file (type png)
 
 <use images/road2d_2.png>
-Package pdftex.def Info: images/road2d_2.png used on input line 375.
+Package pdftex.def Info: images/road2d_2.png used on input line 376.
 (pdftex.def)             Requested size: 349.6316pt x 196.5718pt.
  [17 <./images/road2d_2.png>]
 <images/camera1.png, id=83, 805.0075pt x 629.35126pt>
 File: images/camera1.png Graphic file (type png)
  <use images/camera1.png>
-Package pdftex.def Info: images/camera1.png used on input line 404.
+Package pdftex.def Info: images/camera1.png used on input line 405.
 (pdftex.def)             Requested size: 402.50278pt x 314.67485pt.
 
 [18] [19 <./images/camera1.png>] [20
@@ -1097,10 +1103,10 @@ Package pdftex.def Info: images/camera1.png used on input line 404.
 File: images/qt_creator.png Graphic file (type png)
 
 <use images/qt_creator.png>
-Package pdftex.def Info: images/qt_creator.png used on input line 437.
+Package pdftex.def Info: images/qt_creator.png used on input line 438.
 (pdftex.def)             Requested size: 479.90007pt x 258.92119pt.
 
-Overfull \hbox (1.75719pt too wide) in paragraph at lines 441--442
+Overfull \hbox (1.75719pt too wide) in paragraph at lines 442--443
 \T2A/cmr/m/n/14.4 роз-роб-ки Androi-dStudio. Це се-ре-до-ви-ще № мо-ди-фi-ка-цi
 -№ю IntelliJ Idea Communi-
  []
@@ -1110,21 +1116,21 @@ Overfull \hbox (1.75719pt too wide) in paragraph at lines 441--442
 File: images/android_studio.png Graphic file (type png)
 
 <use images/android_studio.png>
-Package pdftex.def Info: images/android_studio.png used on input line 451.
+Package pdftex.def Info: images/android_studio.png used on input line 452.
 (pdftex.def)             Requested size: 479.90007pt x 258.92119pt.
  [22 <./images/android_studio.png>]
 <images/general_workflow.png, id=104, 842.14626pt x 622.325pt>
 File: images/general_workflow.png Graphic file (type png)
 
 <use images/general_workflow.png>
-Package pdftex.def Info: images/general_workflow.png used on input line 484.
+Package pdftex.def Info: images/general_workflow.png used on input line 485.
 (pdftex.def)             Requested size: 421.0721pt x 311.16173pt.
  [23]
 <images/observer_1_1.png, id=108, 848.16875pt x 398.48875pt>
 File: images/observer_1_1.png Graphic file (type png)
 
 <use images/observer_1_1.png>
-Package pdftex.def Info: images/observer_1_1.png used on input line 505.
+Package pdftex.def Info: images/observer_1_1.png used on input line 506.
 (pdftex.def)             Requested size: 424.08333pt x 199.24388pt.
  [24 <./images/general_workflow.png>]
 <images/mobile_agent_workflow.png, id=114, 411.5375pt x 466.74374pt>
@@ -1132,10 +1138,10 @@ File: images/mobile_agent_workflow.png Graphic file (type png)
 
 <use images/mobile_agent_workflow.png>
 Package pdftex.def Info: images/mobile_agent_workflow.png used on input line 51
-3.
+4.
 (pdftex.def)             Requested size: 205.76825pt x 233.37129pt.
  [25 <./images/observer_1_1.png> <./images/mobile_agent_workflow.png>]
-Overfull \hbox (1.53618pt too wide) in paragraph at lines 529--530
+Overfull \hbox (1.53618pt too wide) in paragraph at lines 530--531
 [][][][][][][][][][][][] 
  []
 
@@ -1143,7 +1149,7 @@ Overfull \hbox (1.53618pt too wide) in paragraph at lines 529--530
 File: images/mobile_agent_classes.png Graphic file (type png)
 
 <use images/mobile_agent_classes.png>
-Package pdftex.def Info: images/mobile_agent_classes.png used on input line 543
+Package pdftex.def Info: images/mobile_agent_classes.png used on input line 544
 .
 (pdftex.def)             Requested size: 263.48372pt x 331.23668pt.
 
@@ -1151,7 +1157,7 @@ Package pdftex.def Info: images/mobile_agent_classes.png used on input line 543
 File: images/renderer_workflow.png Graphic file (type png)
 
 <use images/renderer_workflow.png>
-Package pdftex.def Info: images/renderer_workflow.png used on input line 555.
+Package pdftex.def Info: images/renderer_workflow.png used on input line 556.
 (pdftex.def)             Requested size: 180.67456pt x 263.48372pt.
  [26] [27 <./images/mobile_agent_classes.png> <./images/renderer_workflow.png>]
 
@@ -1159,10 +1165,10 @@ Package pdftex.def Info: images/renderer_workflow.png used on input line 555.
 File: images/renderer_classes.png Graphic file (type png)
 
 <use images/renderer_classes.png>
-Package pdftex.def Info: images/renderer_classes.png used on input line 562.
+Package pdftex.def Info: images/renderer_classes.png used on input line 563.
 (pdftex.def)             Requested size: 609.27477pt x 355.8285pt.
  [28 <./images/renderer_classes.png>]
-Overfull \hbox (150.65372pt too wide) in paragraph at lines 582--583
+Overfull \hbox (150.65372pt too wide) in paragraph at lines 583--584
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][] 
  []
@@ -1174,11 +1180,11 @@ Overfull \hbox (150.65372pt too wide) in paragraph at lines 582--583
 File: images/perpendicular_2_1.png Graphic file (type png)
 
 <use images/perpendicular_2_1.png>
-Package pdftex.def Info: images/perpendicular_2_1.png used on input line 606.
+Package pdftex.def Info: images/perpendicular_2_1.png used on input line 607.
 (pdftex.def)             Requested size: 411.64105pt x 336.35922pt.
 
 ! Undefined control sequence.
-l.610 ...ЅСЋСЋС‚СЊСЃСЏ РѕРґРЅС–С”СЋ ($J, K \Rarrow
+l.611 ...ЅСЋСЋС‚СЊСЃСЏ РѕРґРЅС–С”СЋ ($J, K \Rarrow
                                                    O$).
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1190,17 +1196,17 @@ and I'll forget about whatever was undefined.
 File: images/road2d_1.png Graphic file (type png)
 
 <use images/road2d_1.png>
-Package pdftex.def Info: images/road2d_1.png used on input line 624.
+Package pdftex.def Info: images/road2d_1.png used on input line 625.
 (pdftex.def)             Requested size: 462.74957pt x 260.16959pt.
  [31 <./images/perpendicular_2_1.png>]
 <images/perpendicular_1_1.png, id=150, 1162.5834pt x 593.8185pt>
 File: images/perpendicular_1_1.png Graphic file (type png)
 
 <use images/perpendicular_1_1.png>
-Package pdftex.def Info: images/perpendicular_1_1.png used on input line 636.
+Package pdftex.def Info: images/perpendicular_1_1.png used on input line 637.
 (pdftex.def)             Requested size: 755.67027pt x 385.97745pt.
 
-Overfull \hbox (271.9734pt too wide) in paragraph at lines 636--637
+Overfull \hbox (271.9734pt too wide) in paragraph at lines 637--638
  [][] 
  []
 
@@ -1209,10 +1215,10 @@ Overfull \hbox (271.9734pt too wide) in paragraph at lines 636--637
 File: images/camera2.png Graphic file (type png)
 
 <use images/camera2.png>
-Package pdftex.def Info: images/camera2.png used on input line 665.
+Package pdftex.def Info: images/camera2.png used on input line 666.
 (pdftex.def)             Requested size: 402.50278pt x 314.67485pt.
  [34] [35 <./images/camera2.png>]
-Overfull \hbox (5.48366pt too wide) in paragraph at lines 681--682
+Overfull \hbox (5.48366pt too wide) in paragraph at lines 682--683
 []\T2A/cmr/m/n/14.4 Цi вi-до-мо-стi пiд-ра-хо-ва-но на осно-вi су-б'№-ктив-ноЁ 
 оцiн-ки швид-ко-стi оброб-
  []
@@ -1221,7 +1227,7 @@ Overfull \hbox (5.48366pt too wide) in paragraph at lines 681--682
 File: images/user_activity_1.png Graphic file (type png)
 
 <use images/user_activity_1.png>
-Package pdftex.def Info: images/user_activity_1.png used on input line 688.
+Package pdftex.def Info: images/user_activity_1.png used on input line 689.
 (pdftex.def)             Requested size: 272.51746pt x 228.35255pt.
  [36
 
@@ -1231,31 +1237,31 @@ File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
 ) [38
 
 ] [39]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 788.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 789.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <14.4> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 788.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 789.
 
-Overfull \hbox (26.20905pt too wide) in paragraph at lines 794--795
+Overfull \hbox (26.20905pt too wide) in paragraph at lines 795--796
 [][][][][][][][][][][][][][][][][][] 
  []
 
 [40]
-Overfull \hbox (9.76047pt too wide) in paragraph at lines 801--802
+Overfull \hbox (9.76047pt too wide) in paragraph at lines 802--803
 [][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (17.98476pt too wide) in paragraph at lines 802--804
+Overfull \hbox (17.98476pt too wide) in paragraph at lines 803--805
 [][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (1.53618pt too wide) in paragraph at lines 805--806
+Overfull \hbox (1.53618pt too wide) in paragraph at lines 806--807
 [][][][][][][][][][][][][][][][][][][][] 
  []
 
@@ -1269,20 +1275,20 @@ File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
 File: lstmisc.sty 2013/07/10 1.5 (Carsten Heinz)
 ) [43]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 945.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 946.
  [44]
 [45]
-Overfull \hbox (30.83194pt too wide) in paragraph at lines 1026--1028
+Overfull \hbox (30.83194pt too wide) in paragraph at lines 1027--1029
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [46] [47]
-Overfull \hbox (9.68692pt too wide) in paragraph at lines 1110--1111
+Overfull \hbox (9.68692pt too wide) in paragraph at lines 1111--1112
 [][][][][][][][][][][][][][][][][] 
  []
 
 [48] [49] [50] [51]
-Overfull \hbox (8.52692pt too wide) in paragraph at lines 1293--1294
+Overfull \hbox (8.52692pt too wide) in paragraph at lines 1294--1295
 []\T2A/cmr/m/n/14.4 Даний клас за-сто-со-ву-№-ться для пе-ре-тво-рень ма-три-цi
  \T2A/cmr/m/it/14.4 GL_MODELVIEW\T2A/cmr/m/n/14.4 . 
  []
@@ -1291,14 +1297,14 @@ Overfull \hbox (8.52692pt too wide) in paragraph at lines 1293--1294
 File: images/results1.png Graphic file (type png)
 
 <use images/results1.png>
-Package pdftex.def Info: images/results1.png used on input line 1408.
+Package pdftex.def Info: images/results1.png used on input line 1409.
 (pdftex.def)             Requested size: 425.79713pt x 214.65514pt.
 
 <images/results2.png, id=234, 805.0075pt x 629.35126pt>
 File: images/results2.png Graphic file (type png)
 
 <use images/results2.png>
-Package pdftex.def Info: images/results2.png used on input line 1410.
+Package pdftex.def Info: images/results2.png used on input line 1411.
 (pdftex.def)             Requested size: 281.75685pt x 220.27623pt.
  [55
 
@@ -1307,19 +1313,19 @@ g, id=243, 296.10625pt x 525.965pt>
 File: images/mobile_screen.png Graphic file (type png)
 
 <use images/mobile_screen.png>
-Package pdftex.def Info: images/mobile_screen.png used on input line 1418.
+Package pdftex.def Info: images/mobile_screen.png used on input line 1419.
 (pdftex.def)             Requested size: 222.07913pt x 394.47276pt.
  [57 <./images/mobile_screen.png>]
 <images/car_01.jpg, id=247, 478.78876pt x 331.2375pt>
 File: images/car_01.jpg Graphic file (type jpg)
  <use images/car_01.jpg>
-Package pdftex.def Info: images/car_01.jpg used on input line 1425.
+Package pdftex.def Info: images/car_01.jpg used on input line 1426.
 (pdftex.def)             Requested size: 359.09068pt x 248.4275pt.
 
 <images/car_03.jpg, id=248, 1006.76125pt x 815.045pt>
 File: images/car_03.jpg Graphic file (type jpg)
  <use images/car_03.jpg>
-Package pdftex.def Info: images/car_03.jpg used on input line 1428.
+Package pdftex.def Info: images/car_03.jpg used on input line 1429.
 (pdftex.def)             Requested size: 352.37172pt x 285.27002pt.
 
 [58 <./images/car_01.jpg> <./images/car_03.jpg>]
@@ -1327,14 +1333,14 @@ Package pdftex.def Info: images/car_03.jpg used on input line 1428.
 File: images/comparison_01.png Graphic file (type png)
 
 <use images/comparison_01.png>
-Package pdftex.def Info: images/comparison_01.png used on input line 1435.
+Package pdftex.def Info: images/comparison_01.png used on input line 1436.
 (pdftex.def)             Requested size: 405.4207pt x 199.8998pt.
 
 <images/comparison_02.png, id=253, 845.1575pt x 570.13pt>
 File: images/comparison_02.png Graphic file (type png)
 
 <use images/comparison_02.png>
-Package pdftex.def Info: images/comparison_02.png used on input line 1438.
+Package pdftex.def Info: images/comparison_02.png used on input line 1439.
 (pdftex.def)             Requested size: 422.57771pt x 285.0643pt.
  [59 <./images/comparison_01.png> <./images/comparison_02.png>] [60
 
@@ -1360,7 +1366,7 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1835 \begin{lstlisting}[language=javascript]
+l.1836 \begin{lstlisting}[language=javascript]
                                               
 The following languages weren't loadable:
     ,javascript$
@@ -1373,7 +1379,7 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1835 \begin{lstlisting}[language=javascript]
+l.1836 \begin{lstlisting}[language=javascript]
                                               
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1385,17 +1391,17 @@ File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2013/07/10 1.5 (Carsten Heinz)
 )
-Overfull \hbox (66.07364pt too wide) in paragraph at lines 2355--2357
+Overfull \hbox (66.07364pt too wide) in paragraph at lines 2356--2358
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (44.92862pt too wide) in paragraph at lines 2367--2369
+Overfull \hbox (44.92862pt too wide) in paragraph at lines 2368--2370
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (355.05557pt too wide) in paragraph at lines 2369--2370
+Overfull \hbox (355.05557pt too wide) in paragraph at lines 2370--2371
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
@@ -1407,7 +1413,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2371 ...es/by-sa/2.0/">CC-BY-SA</a>, Imagery В© 
+l.2372 ...es/by-sa/2.0/">CC-BY-SA</a>, Imagery В© 
                                                   <a href="http://cloudmade....
 
 Your command was ignored.
@@ -1422,14 +1428,14 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2371 ...es/by-sa/2.0/">CC-BY-SA</a>, Imagery В© 
+l.2372 ...es/by-sa/2.0/">CC-BY-SA</a>, Imagery В© 
                                                   <a href="http://cloudmade....
 
 You need to provide a definition with \DeclareInputText 
 or \DeclareInputMath before using this key.
 
 
-Overfull \hbox (1264.29141pt too wide) in paragraph at lines 2371--2372
+Overfull \hbox (1264.29141pt too wide) in paragraph at lines 2372--2373
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 [][][][][][][][][][][][] 
@@ -1477,7 +1483,7 @@ m-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb
 onts/type1/public/cm-super/sfsl1000.pfb></usr/share/texmf/fonts/type1/public/cm
 -super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1440.pfb>
 
-Output written on doc_main.pdf (85 pages, 3815970 bytes).
+Output written on doc_main.pdf (85 pages, 3815526 bytes).
 PDF statistics:
  408 PDF objects out of 1000 (max. 8388607)
  252 compressed objects within 3 object streams
