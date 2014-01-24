@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.1.19)  23 JAN 2014 02:36
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.1.19)  24 JAN 2014 01:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1120,61 +1120,65 @@ File: images/general_workflow.png Graphic file (type png)
 Package pdftex.def Info: images/general_workflow.png used on input line 484.
 (pdftex.def)             Requested size: 421.0721pt x 311.16173pt.
  [23]
-<images/mobile_agent_workflow.png, id=108, 411.5375pt x 466.74374pt>
+<images/observer_1_1.png, id=108, 848.16875pt x 398.48875pt>
+File: images/observer_1_1.png Graphic file (type png)
+
+<use images/observer_1_1.png>
+Package pdftex.def Info: images/observer_1_1.png used on input line 505.
+(pdftex.def)             Requested size: 424.08333pt x 199.24388pt.
+ [24 <./images/general_workflow.png>]
+<images/mobile_agent_workflow.png, id=114, 411.5375pt x 466.74374pt>
 File: images/mobile_agent_workflow.png Graphic file (type png)
 
 <use images/mobile_agent_workflow.png>
-Package pdftex.def Info: images/mobile_agent_workflow.png used on input line 50
-0.
+Package pdftex.def Info: images/mobile_agent_workflow.png used on input line 51
+3.
 (pdftex.def)             Requested size: 205.76825pt x 233.37129pt.
-
-<images/mobile_screen.png, id=109, 296.10625pt x 525.965pt>
-File: images/mobile_screen.png Graphic file (type png)
-
-<use images/mobile_screen.png>
-Package pdftex.def Info: images/mobile_screen.png used on input line 506.
-(pdftex.def)             Requested size: 222.07913pt x 394.47276pt.
- [24 <./images/general_workflow.png>] [25 <./images/mobile_agent_workflow.png> 
-<./images/mobile_screen.png>]
-Overfull \hbox (1.53618pt too wide) in paragraph at lines 522--523
+ [25 <./images/observer_1_1.png> <./images/mobile_agent_workflow.png>]
+Overfull \hbox (1.53618pt too wide) in paragraph at lines 529--530
 [][][][][][][][][][][][] 
  []
 
-<images/mobile_agent_classes.png, id=119, 351.3125pt x 441.65pt>
+<images/mobile_agent_classes.png, id=120, 351.3125pt x 441.65pt>
 File: images/mobile_agent_classes.png Graphic file (type png)
 
 <use images/mobile_agent_classes.png>
-Package pdftex.def Info: images/mobile_agent_classes.png used on input line 536
+Package pdftex.def Info: images/mobile_agent_classes.png used on input line 543
 .
 (pdftex.def)             Requested size: 263.48372pt x 331.23668pt.
 
-<images/renderer_workflow.png, id=120, 361.35pt x 526.96875pt>
+<images/renderer_workflow.png, id=121, 361.35pt x 526.96875pt>
 File: images/renderer_workflow.png Graphic file (type png)
 
 <use images/renderer_workflow.png>
-Package pdftex.def Info: images/renderer_workflow.png used on input line 548.
+Package pdftex.def Info: images/renderer_workflow.png used on input line 555.
 (pdftex.def)             Requested size: 180.67456pt x 263.48372pt.
  [26] [27 <./images/mobile_agent_classes.png> <./images/renderer_workflow.png>]
 
-<images/renderer_classes.png, id=131, 1218.5525pt x 711.65875pt>
+<images/renderer_classes.png, id=132, 1218.5525pt x 711.65875pt>
 File: images/renderer_classes.png Graphic file (type png)
 
 <use images/renderer_classes.png>
-Package pdftex.def Info: images/renderer_classes.png used on input line 555.
+Package pdftex.def Info: images/renderer_classes.png used on input line 562.
 (pdftex.def)             Requested size: 609.27477pt x 355.8285pt.
- [28 <./images/renderer_classes.png>] [29
+ [28 <./images/renderer_classes.png>]
+Overfull \hbox (150.65372pt too wide) in paragraph at lines 582--583
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][] 
+ []
+
+[29
 
 
-]
-<images/perpendicular_2_1.png, id=139, 1372.12625pt x 1121.18875pt>
+] <images/perpendicular_2_1.png, id=140, 1372.12625pt x 1121.18875pt>
 File: images/perpendicular_2_1.png Graphic file (type png)
 
 <use images/perpendicular_2_1.png>
-Package pdftex.def Info: images/perpendicular_2_1.png used on input line 585.
+Package pdftex.def Info: images/perpendicular_2_1.png used on input line 606.
 (pdftex.def)             Requested size: 411.64105pt x 336.35922pt.
 
 ! Undefined control sequence.
-l.589 ...ЅСЋСЋС‚СЊСЃСЏ РѕРґРЅС–С”СЋ ($J, K \Rarrow
+l.610 ...ЅСЋСЋС‚СЊСЃСЏ РѕРґРЅС–С”СЋ ($J, K \Rarrow
                                                    O$).
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1182,67 +1186,80 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[30 <./images/perpendicular_2_1.png>]
-<images/road2d_1.png, id=145, 1028.34187pt x 578.16pt>
+[30] <images/road2d_1.png, id=146, 1028.34187pt x 578.16pt>
 File: images/road2d_1.png Graphic file (type png)
 
 <use images/road2d_1.png>
-Package pdftex.def Info: images/road2d_1.png used on input line 603.
+Package pdftex.def Info: images/road2d_1.png used on input line 624.
 (pdftex.def)             Requested size: 462.74957pt x 260.16959pt.
-
-<images/perpendicular_1_1.png, id=146, 1162.5834pt x 593.8185pt>
+ [31 <./images/perpendicular_2_1.png>]
+<images/perpendicular_1_1.png, id=150, 1162.5834pt x 593.8185pt>
 File: images/perpendicular_1_1.png Graphic file (type png)
 
 <use images/perpendicular_1_1.png>
-Package pdftex.def Info: images/perpendicular_1_1.png used on input line 615.
+Package pdftex.def Info: images/perpendicular_1_1.png used on input line 636.
 (pdftex.def)             Requested size: 755.67027pt x 385.97745pt.
 
-Overfull \hbox (271.9734pt too wide) in paragraph at lines 615--616
+Overfull \hbox (271.9734pt too wide) in paragraph at lines 636--637
  [][] 
  []
 
-[31 <./images/road2d_1.png>] [32 <./images/perpendicular_1_1.png>] [33]
-<images/camera2.png, id=158, 805.0075pt x 629.35126pt>
+[32 <./images/road2d_1.png>] [33 <./images/perpendicular_1_1.png>]
+<images/camera2.png, id=159, 805.0075pt x 629.35126pt>
 File: images/camera2.png Graphic file (type png)
 
 <use images/camera2.png>
-Package pdftex.def Info: images/camera2.png used on input line 644.
+Package pdftex.def Info: images/camera2.png used on input line 665.
 (pdftex.def)             Requested size: 402.50278pt x 314.67485pt.
- [34 <./images/camera2.png>]
+ [34] [35 <./images/camera2.png>]
+Overfull \hbox (5.48366pt too wide) in paragraph at lines 681--682
+[]\T2A/cmr/m/n/14.4 Цi вi-до-мо-стi пiд-ра-хо-ва-но на осно-вi су-б'№-ктив-ноЁ 
+оцiн-ки швид-ко-стi оброб-
+ []
+
+<images/user_activity_1.png, id=167, 545.03625pt x 456.70625pt>
+File: images/user_activity_1.png Graphic file (type png)
+
+<use images/user_activity_1.png>
+Package pdftex.def Info: images/user_activity_1.png used on input line 688.
+(pdftex.def)             Requested size: 272.51746pt x 228.35255pt.
+ [36
+
+] [37 <./images/user_activity_1.png>]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
-) [35
+) [38
 
-] [36]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 743.
+] [39]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 788.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <14.4> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 743.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 788.
 
-Overfull \hbox (26.20905pt too wide) in paragraph at lines 749--750
+Overfull \hbox (26.20905pt too wide) in paragraph at lines 794--795
 [][][][][][][][][][][][][][][][][][] 
  []
 
-[37]
-Overfull \hbox (9.76047pt too wide) in paragraph at lines 756--757
+[40]
+Overfull \hbox (9.76047pt too wide) in paragraph at lines 801--802
 [][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (17.98476pt too wide) in paragraph at lines 757--759
+Overfull \hbox (17.98476pt too wide) in paragraph at lines 802--804
 [][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (1.53618pt too wide) in paragraph at lines 760--761
+Overfull \hbox (1.53618pt too wide) in paragraph at lines 805--806
 [][][][][][][][][][][][][][][][][][][][] 
  []
 
-[38] [39] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+[41] [42] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -1250,167 +1267,220 @@ File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2013/07/10 1.5 (Carsten Heinz)
-) [40]
+) [43]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 900.
- [41]
-[42]
-Overfull \hbox (30.83194pt too wide) in paragraph at lines 981--983
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 945.
+ [44]
+[45]
+Overfull \hbox (30.83194pt too wide) in paragraph at lines 1026--1028
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[43] [44]
-Overfull \hbox (9.68692pt too wide) in paragraph at lines 1065--1066
+[46] [47]
+Overfull \hbox (9.68692pt too wide) in paragraph at lines 1110--1111
 [][][][][][][][][][][][][][][][][] 
  []
 
-[45] [46] [47] [48]
-Overfull \hbox (8.52692pt too wide) in paragraph at lines 1248--1249
+[48] [49] [50] [51]
+Overfull \hbox (8.52692pt too wide) in paragraph at lines 1293--1294
 []\T2A/cmr/m/n/14.4 Даний клас за-сто-со-ву-№-ться для пе-ре-тво-рень ма-три-цi
  \T2A/cmr/m/it/14.4 GL_MODELVIEW\T2A/cmr/m/n/14.4 . 
  []
 
-[49] [50] [51] <images/results1.png, id=220, 1216.545pt x 613.29124pt>
+[52] [53] [54] <images/results1.png, id=233, 1216.545pt x 613.29124pt>
 File: images/results1.png Graphic file (type png)
 
 <use images/results1.png>
-Package pdftex.def Info: images/results1.png used on input line 1361.
+Package pdftex.def Info: images/results1.png used on input line 1408.
 (pdftex.def)             Requested size: 425.79713pt x 214.65514pt.
 
-<images/results2.png, id=221, 805.0075pt x 629.35126pt>
+<images/results2.png, id=234, 805.0075pt x 629.35126pt>
 File: images/results2.png Graphic file (type png)
 
 <use images/results2.png>
-Package pdftex.def Info: images/results2.png used on input line 1363.
-(pdftex.def)             Requested size: 402.50278pt x 314.67485pt.
- [52
+Package pdftex.def Info: images/results2.png used on input line 1410.
+(pdftex.def)             Requested size: 281.75685pt x 220.27623pt.
+ [55
 
-] [53 <./images/results1.png> <./images/results2.png>] [54
+] [56 <./images/results1.png> <./images/results2.png>] <images/mobile_screen.pn
+g, id=243, 296.10625pt x 525.965pt>
+File: images/mobile_screen.png Graphic file (type png)
 
-] (./doc_main.bbl
-! Missing $ inserted.
-<inserted text> 
-                $
-l.22 ....wikipedia.org/wiki/Great-circle_distance}
-                                                  .
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+<use images/mobile_screen.png>
+Package pdftex.def Info: images/mobile_screen.png used on input line 1418.
+(pdftex.def)             Requested size: 222.07913pt x 394.47276pt.
+ [57 <./images/mobile_screen.png>]
+<images/car_01.jpg, id=247, 478.78876pt x 331.2375pt>
+File: images/car_01.jpg Graphic file (type jpg)
+ <use images/car_01.jpg>
+Package pdftex.def Info: images/car_01.jpg used on input line 1425.
+(pdftex.def)             Requested size: 359.09068pt x 248.4275pt.
 
-! Extra }, or forgotten $.
-\url #1->{\small #1}
-                    
-l.22 ....wikipedia.org/wiki/Great-circle_distance}
-                                                  .
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
+<images/car_03.jpg, id=248, 1006.76125pt x 815.045pt>
+File: images/car_03.jpg Graphic file (type jpg)
+ <use images/car_03.jpg>
+Package pdftex.def Info: images/car_03.jpg used on input line 1428.
+(pdftex.def)             Requested size: 352.37172pt x 285.27002pt.
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.23 
-     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+[58 <./images/car_01.jpg> <./images/car_03.jpg>]
+<images/comparison_01.png, id=252, 1158.3275pt x 571.13374pt>
+File: images/comparison_01.png Graphic file (type png)
 
-! Missing } inserted.
-<inserted text> 
-                }
-l.23 
-     
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
+<use images/comparison_01.png>
+Package pdftex.def Info: images/comparison_01.png used on input line 1435.
+(pdftex.def)             Requested size: 405.4207pt x 199.8998pt.
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.33 ...ia.org/wiki/Geographic_information_system}
-                                                  .
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+<images/comparison_02.png, id=253, 845.1575pt x 570.13pt>
+File: images/comparison_02.png Graphic file (type png)
 
-! Extra }, or forgotten $.
-\url #1->{\small #1}
-                    
-l.33 ...ia.org/wiki/Geographic_information_system}
-                                                  .
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.34 
-     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.34 
-     
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
+<use images/comparison_02.png>
+Package pdftex.def Info: images/comparison_02.png used on input line 1438.
+(pdftex.def)             Requested size: 422.57771pt x 285.0643pt.
+ [59 <./images/comparison_01.png> <./images/comparison_02.png>] [60
 
 
-Overfull \hbox (22.0639pt too wide) in paragraph at lines 31--34
+
+
+] [61
+
+] [62] [63] [64] [65] [66] [67] [68] [69]
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2013/06/27 1.5pre1 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang3.sty
+File: lstlang3.sty 2013/06/27 1.5pre1 listings language file
+)
+
+! Package Listings Error: Couldn't load requested language.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1835 \begin{lstlisting}[language=javascript]
+                                              
+The following languages weren't loadable:
+    ,javascript$
+This may cause errors in the sequel.
+
+
+! Package Listings Error: language javascript undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1835 \begin{lstlisting}[language=javascript]
+                                              
+The language is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81]
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2013/07/10 1.5 (Carsten Heinz)
+)
+Overfull \hbox (66.07364pt too wide) in paragraph at lines 2355--2357
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (44.92862pt too wide) in paragraph at lines 2367--2369
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (355.05557pt too wide) in paragraph at lines 2369--2370
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+! Package inputenc Error: Unicode char \u8:В\lst@FillFixed@ not set up for use 
+with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2371 ...es/by-sa/2.0/">CC-BY-SA</a>, Imagery В© 
+                                                  <a href="http://cloudmade....
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2371 ...es/by-sa/2.0/">CC-BY-SA</a>, Imagery В© 
+                                                  <a href="http://cloudmade....
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+Overfull \hbox (1264.29141pt too wide) in paragraph at lines 2371--2372
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][] 
+ []
+
+[82] [83] (./doc_main.bbl
+Overfull \hbox (33.43646pt too wide) in paragraph at lines 31--34
 []\T2A/cmr/m/n/14.4 Community W. Gis. ^^V  URL: \T2A/cmr/m/n/12 http://en.wikip
-edia.org/wiki/Geographic$[]\OML/cmm/m/it/12 nformation[]ystem:[]$ 
+edia.org/wiki/Geographic_information_system\T2A/cmr/m/n/14.4 . 
  []
 
 ) 
 AED: lastpage setting LastPage
-[55] (./doc_main.aux)
+[84
+
+] (./doc_main.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 9074 strings out of 493307
- 130868 string characters out of 6139905
- 221473 words of memory out of 5000000
- 12253 multiletter control sequences out of 15000+600000
- 23400 words of font info for 58 fonts, out of 8000000 for 9000
+ 9445 strings out of 493307
+ 136090 string characters out of 6139905
+ 238942 words of memory out of 5000000
+ 12603 multiletter control sequences out of 15000+600000
+ 25029 words of font info for 60 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 50i,11n,60p,1431b,1715s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 50i,11n,60p,1431b,1950s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t2a.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sym
-bols/msam10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbi1440.pfb></us
-r/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/
-type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-supe
-r/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb></usr
-/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/t
-ype1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super
-/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/
-share/texmf/fonts/type1/public/cm-super/sfsl1000.pfb></usr/share/texmf/fonts/ty
-pe1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/
-sfti1440.pfb>
-Output written on doc_main.pdf (56 pages, 3312936 bytes).
+s/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbi1440.p
+fb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf
+/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/
+cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.pf
+b></usr/share/texmf/fonts/type1/public/cm-super/sfbx2986.pfb></usr/share/texmf/
+fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/c
+m-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb
+></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/f
+onts/type1/public/cm-super/sfsl1000.pfb></usr/share/texmf/fonts/type1/public/cm
+-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1440.pfb>
+
+Output written on doc_main.pdf (85 pages, 3815970 bytes).
 PDF statistics:
- 304 PDF objects out of 1000 (max. 8388607)
- 188 compressed objects within 2 object streams
+ 408 PDF objects out of 1000 (max. 8388607)
+ 252 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 106 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 136 words of extra memory for PDF output out of 10000 (max. 10000000)
 

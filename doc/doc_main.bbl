@@ -19,7 +19,7 @@
 \bibitem{website:great_circle_distance}
 \selectlanguageifdefined{english}
 \BibEmph{Community~W.} Great circle distance. \BibDash
-\newblock URL: \BibUrl{http://en.wikipedia.org/wiki/Great-circle_distance}.
+\newblock URL: \BibUrl{http://en.wikipedia.org/wiki/Great-circle\_distance}.
 
 \bibitem{website:gps_receiver}
 \selectlanguageifdefined{english}
@@ -30,7 +30,7 @@
 \selectlanguageifdefined{english}
 \BibEmph{Community~W.} Gis. \BibDash
 \newblock URL:
-  \BibUrl{http://en.wikipedia.org/wiki/Geographic_information_system}.
+  \BibUrl{http://en.wikipedia.org/wiki/Geographic\_information\_system}.
 
 \bibitem{website:nmea_0183}
 \selectlanguageifdefined{english}
